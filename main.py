@@ -28,7 +28,7 @@ plt.show()
 
 # Bar chart for vaccination rates
 plt.figure(figsize=(12, 6))
-plt.bar(merged_data['bundesland'], merged_data['vaccination_rate'], label='Vaccination Rate')
+plt.bar(merged_data['Bundesland'], merged_data['Impfrate'], label='Vaccination Rate')
 plt.xlabel('Bundesland')
 plt.ylabel('Vaccination Rate')
 plt.title('Vaccination Rates per Bundesland in 2019')
