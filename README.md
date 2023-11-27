@@ -15,9 +15,9 @@ male/female vaccinaton rate.
 
 -------
 - Who is your key user group?
-The key user groups are medical professionals or parents who are interested in the effectiveness of vaccination
-or in measures introduced to supress the spread of measles in Germany - either for research purposes 
-or for personal interest of both groups.
+  The target group i want to reach are parents of disabled children who are, among other things, immunocompromised. They should be able to see how many of the children in the selected
+  federal state are vaccinated and how many of them have actually been sick from measles. It helps deciding whether families should try vaccinating their child or
+  not; also it helps finding a fitting federal state with the so called "herd immunity" - so that the children who cannot be vaccinated for reasons, find their safe home.
 
 -----
 - How does the type of visualization chosen help achieve this task effectively and efficiently?
