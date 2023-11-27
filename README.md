@@ -4,20 +4,15 @@
 find me here https://xginevra.github.io/measlesdata/
  
 ------
-- ### What are your users trying to achieve/understand/ inquire?
-What we want to see is if there is any causality between the vaccination rates and 
-the numbers of measle cases in a federal state - as political opinions in 
-every single federal state are different and highly affecting people's lives.
-
--> TODO: A feature for the future should be the difference between the effectiveness 
-of the vaccination in males and females - by comparing the male/female measles cases vs. 
-male/female vaccinaton rate. 
-
--------
-- ### Who is your key user group?
-  The target group i want to reach are parents of disabled children who are, among other things, immunocompromised. They should be able to see how many of the children in the selected
+- ### Who is your key user group? What are your users trying to achieve/understand/ inquire?
+  The target group we want to reach are parents of disabled children who are, among other things, immunocompromised. They should be able to see how many of the children in the selected
   federal state are vaccinated and how many of them have actually been sick from measles. It helps deciding whether families should try vaccinating their child or
-  not; also it helps finding a fitting federal state with the so called "herd immunity" - so that the children who cannot be vaccinated for reasons, find their safe home.
+  not despite several dangers they are exposed to; also it helps finding a fitting federal state with the so called "herd immunity" - so that the children who cannot be vaccinated
+   for reasons, find their safe home.
+  
+  We want to compare the vaccination rates with the actual measle cases in each federal state to see how effective the vaccination is - it may reassure parents or not.
+  Also, according to the user group, we want to see where it would be safest to live
+  for parents with a disabled/immunocompromised child.
 
 -----
 - ### How does the type of visualization chosen help achieve this task effectively and efficiently?
