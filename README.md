@@ -32,4 +32,4 @@ So, information is transmitted more easily for any social class.
 -> TODO: for those who want to see diagrams and naked numbers rather than playing around with a map, I want to embed the map to a page of my website and add an extra page with 
 plots and such. 
 -> TODO: i want to click on a federal state to get to a plotted visualisation of the data for the selected state.
-
+-> TODO: SQLite file to replace a database; JSON compability
