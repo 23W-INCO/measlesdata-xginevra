@@ -49,3 +49,12 @@ iframe {
     margin-bottom: 50px; /* Add space to the bottom */
     width: 50%;
 }
+
+.tooltip {
+    position: absolute;
+    background-color: #e80c0c;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    pointer-events: none;
+}
