@@ -9,12 +9,22 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="left-section">
-    <div id="measles-chart" class="chart-container"></div>
-    <div id="vaccination-rate-chart" class="chart-container"></div>
-</div>
 
+<div class="left-section">
+    <h2>Welcome to the Measles Evaluation Application</h2>
+    <p>This application provides visualizations of measles cases and vaccination rates per Bundesland in Germany.</p>
+    <div id="chart-container" class="chart-container" style="display: none;"></div>
+</div>
+<div class="dropdown-container">
+    <label for="chart-selection">Select Chart:</label>
+    <select id="chart-selection" onchange="updateChart()">
+        <option value="" selected disabled hidden>What do you want to see?</option>
+        <option value="measles">Measles Cases per Bundesland</option>
+        <option value="vaccination">Vaccination Rates per Bundesland</option>
+    </select>
+</div>
 <div class="right-section">
+    <p>For an overview, click on your desired federal state.</p>
     <iframe src="bundesländer.html"></iframe>
 </div>
 
@@ -57,76 +67,94 @@ const VaccinationRateData = [
     { key: 'Schleswig-Holstein', value: 83.40 },
     { key: 'Thüringen', value: 71.90 },
 ];
-    // Set up the chart dimensions
-    const width = 350; // Adjust the width as needed
-    const height = 450;
 
-    // Function to create a bar chart
-    function createBarChart(containerId, data, yAxisLabel, chartTitle) {
-        // Sort the data in ascending order
-        data.sort((a, b) => a.value - b.value);
+// Set up the chart dimensions
+const width = 400; // Adjust the width as needed
+const height = 450;
+const margin = { top: 30, right: 20, bottom: 80, left: 60 }; // Define margin
 
-        const svg = d3.select(`#${containerId}`)
-            .append('svg')
-            .attr('width', width + margin.left + margin.right)
-            .attr('height', height + margin.top + margin.bottom)
-            .append('g')
-            .attr('transform', `translate(${margin.left},${margin.top})`);
+// Function to create a bar chart
+function createBarChart(containerId, data, yAxisLabel, chartTitle) {
+    // Sort the data in ascending order
+    data.sort((a, b) => a.value - b.value);
 
-        // Set up the scales
-        const xScale = d3.scaleBand()
-            .domain(data.map(d => d.key))
-            .range([0, width])
-            .padding(0.1);
+    const svg = d3.select(`#${containerId}`)
+        .append('svg')
+        .attr('width', width + margin.left + margin.right)
+        .attr('height', height + margin.top + margin.bottom)
+        .append('g')
+        .attr('transform', `translate(${margin.left},${margin.top})`);
 
-        const yScale = d3.scaleLinear()
-            .domain([0, d3.max(data, d => d.value)])
-            .range([height, 0]);
+    // Set up the scales
+    const xScale = d3.scaleBand()
+        .domain(data.map(d => d.key))
+        .range([0, width])
+        .padding(0.1);
 
-        // Draw the bars
-        svg.selectAll('rect')
-            .data(data)
-            .enter()
-            .append('rect')
-            .attr('x', d => xScale(d.key))
-            .attr('y', d => yScale(d.value))
-            .attr('width', xScale.bandwidth())
-            .attr('height', d => height - yScale(d.value))
-            .attr('fill', 'steelblue');
+    const yScale = d3.scaleLinear()
+        .domain([0, d3.max(data, d => d.value)])
+        .range([height, 0]);
 
-        // Add x-axis with rotated labels
-        svg.append('g')
-            .attr('transform', `translate(0, ${height})`)
-            .call(d3.axisBottom(xScale))
-            .selectAll('text')
-            .attr('transform', 'rotate(-45)')
-            .style('text-anchor', 'end');
+    // Draw the bars
+    svg.selectAll('rect')
+        .data(data)
+        .enter()
+        .append('rect')
+        .attr('x', d => xScale(d.key))
+        .attr('y', d => yScale(d.value))
+        .attr('width', xScale.bandwidth())
+        .attr('height', d => height - yScale(d.value))
+        .attr('fill', 'steelblue');
 
-        // Add y-axis
-        svg.append('g')
-            .call(d3.axisLeft(yScale));
+    // Add x-axis with rotated labels
+    svg.append('g')
+        .attr('transform', `translate(0, ${height})`)
+        .call(d3.axisBottom(xScale))
+        .selectAll('text')
+        .attr('transform', 'rotate(-45)')
+        .style('text-anchor', 'end');
 
-        // Add y-axis label
-        svg.append('text')
-            .attr('transform', 'rotate(-90)')
-            .attr('y', 0 - margin.left)
-            .attr('x', 0 - height / 2)
-            .attr('dy', '1em')
-            .style('text-anchor', 'middle')
-            .text(yAxisLabel);
+    // Add y-axis
+    svg.append('g')
+        .call(d3.axisLeft(yScale));
 
-        // Add chart title
-        svg.append('text')
-            .attr('x', width / 2)
-            .attr('y', 0 - margin.top / 2)
-            .attr('text-anchor', 'middle')
-            .style('font-size', '16px')
-            .text(chartTitle);
+    // Add y-axis label
+    svg.append('text')
+        .attr('transform', 'rotate(-90)')
+        .attr('y', 0 - margin.left)
+        .attr('x', 0 - height / 2)
+        .attr('dy', '1em')
+        .style('text-anchor', 'middle')
+        .text(yAxisLabel);
+
+    // Add chart title
+    svg.append('text')
+        .attr('x', width / 2)
+        .attr('y', 0 - margin.top / 2)
+        .attr('text-anchor', 'middle')
+        .style('font-size', '16px')
+        .text(chartTitle);
+}
+
+// Function to update the chart based on the dropdown selection
+function updateChart() {
+    const chartSelection = document.getElementById('chart-selection');
+    const selectedChart = chartSelection.value;
+
+    // Show or hide the chart based on the selection
+    const chartContainer = document.getElementById('chart-container');
+    chartContainer.style.display = selectedChart ? 'block' : 'none';
+
+    // Clear existing chart
+    d3.select('#chart-container').selectAll('*').remove();
+
+    // Create or update chart based on selection
+    if (selectedChart === 'measles') {
+        createBarChart('chart-container', MeaslesCasesData, 'Cases per 100,000', 'Measles Cases per 100,000');
+    } else if (selectedChart === 'vaccination') {
+        createBarChart('chart-container', VaccinationRateData, 'Vaccination Rate', 'Vaccination Rate by Bundesland');
     }
-
-    // Create charts
-    createBarChart('measles-chart', MeaslesCasesData, 'Cases per 100,000', 'Measles Cases per 100,000');
-    createBarChart('vaccination-rate-chart', VaccinationRateData, 'Vaccination Rate', 'Vaccination Rate by Bundesland');
+}
 </script>
 
 </body>
