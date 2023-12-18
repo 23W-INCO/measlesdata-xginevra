@@ -6,13 +6,13 @@ from fastapi.staticfiles import StaticFiles
 app = FastAPI()
 
 # Serve static files (HTML, JS, CSS)
-app.mount("/", StaticFiles(directory="/Measles", html=True), name="static")
+app.mount("/", StaticFiles(directory="/workspaces/measlesdata", html=True), name="static")
 
 
 # Endpoint to serve the HTML file
 @app.get("/")
 def get_html():
-    return FileResponse("/Measles/index.html")
+    return FileResponse("/workspaces/measlesdata/index.html")
 
 
 if __name__ == "__main__":
