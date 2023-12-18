@@ -11,59 +11,55 @@
 <body>
 <div class="left-section">
     <div id="measles-chart" class="chart-container"></div>
-</div>
     <div id="vaccination-rate-chart" class="chart-container"></div>
+</div>
 
 <div class="right-section">
-<iframe src="bundesländer.html"></iframe>
+    <iframe src="bundesländer.html"></iframe>
 </div>
 
-
 <script>
-    // Measles Cases Data
-    const MeaslesCasesData = [
-        { key: 'Baden-Württemberg', value: 24.07 },
-        { key: 'Bayern', value: 55.65 },
-        { key: 'Berlin', value: 75.11 },
-        { key: 'Brandenburg', value: 13.6 },
-        { key: 'Bremen', value: 14.74 },
-        { key: 'Hamburg', value: 30.83 },
-        { key: 'Hessen', value: 19.20 },
-        { key: 'Mecklenburg-Vorpommern', value: 3.1 },
-        { key: 'Niedersachsen', value: 32.2 },
-        { key: 'Nordrhein-Westfalen', value: 41.24 },
-        { key: 'Rheinland-Pfalz', value: 23.59 },
-        { key: 'Saarland', value: 7.83 },
-        { key: 'Sachsen', value: 13.83 },
-        { key: 'Sachsen-Anhalt', value: 10.51 },
-        { key: 'Schleswig-Holstein', value: 24.07 },
-        { key: 'Thüringen', value: 16.44 },
-    ];
+const MeaslesCasesData = [
+    { key: 'Baden-Württemberg', value: 24.07 },
+    { key: 'Bayern', value: 55.65 },
+    { key: 'Berlin', value: 75.11 },
+    { key: 'Brandenburg', value: 13.6 },
+    { key: 'Bremen', value: 14.74 },
+    { key: 'Hamburg', value: 30.83 },
+    { key: 'Hessen', value: 19.20 },
+    { key: 'Mecklenburg-Vorpommern', value: 3.1 },
+    { key: 'Niedersachsen', value: 32.2 },
+    { key: 'Nordrhein-Westfalen', value: 41.24 },
+    { key: 'Rheinland-Pfalz', value: 23.59 },
+    { key: 'Saarland', value: 7.83 },
+    { key: 'Sachsen', value: 13.83 },
+    { key: 'Sachsen-Anhalt', value: 10.51 },
+    { key: 'Schleswig-Holstein', value: 24.07 },
+    { key: 'Thüringen', value: 16.44 },
+];
 
-    // Vaccination Rate Data
-    const VaccinationRateData = [
-        { key: 'Baden-Württemberg', value: 77.80 },
-        { key: 'Bayern', value: 76 },
-        { key: 'Berlin', value: 70 },
-        { key: 'Brandenburg', value: 80.80 },
-        { key: 'Bremen', value: 77.70 },
-        { key: 'Hamburg', value: 83.80 },
-        { key: 'Hessen', value: 83.40 },
-        { key: 'Mecklenburg-Vorpommern', value: 76.40 },
-        { key: 'Niedersachsen', value: 81.60 },
-        { key: 'Nordrhein-Westfalen', value: 83.30 },
-        { key: 'Rheinland-Pfalz', value: 80.90 },
-        { key: 'Saarland', value: 76.80 },
-        { key: 'Sachsen', value: 27.50 },
-        { key: 'Sachsen-Anhalt', value: 78.90 },
-        { key: 'Schleswig-Holstein', value: 83.40 },
-        { key: 'Thüringen', value: 71.90 },
-    ];
-
+// Vaccination Rate Data
+const VaccinationRateData = [
+    { key: 'Baden-Württemberg', value: 77.80 },
+    { key: 'Bayern', value: 76 },
+    { key: 'Berlin', value: 70 },
+    { key: 'Brandenburg', value: 80.80 },
+    { key: 'Bremen', value: 77.70 },
+    { key: 'Hamburg', value: 83.80 },
+    { key: 'Hessen', value: 83.40 },
+    { key: 'Mecklenburg-Vorpommern', value: 76.40 },
+    { key: 'Niedersachsen', value: 81.60 },
+    { key: 'Nordrhein-Westfalen', value: 83.30 },
+    { key: 'Rheinland-Pfalz', value: 80.90 },
+    { key: 'Saarland', value: 76.80 },
+    { key: 'Sachsen', value: 27.50 },
+    { key: 'Sachsen-Anhalt', value: 78.90 },
+    { key: 'Schleswig-Holstein', value: 83.40 },
+    { key: 'Thüringen', value: 71.90 },
+];
     // Set up the chart dimensions
-    const width = 300; // Adjust the width as needed
-    const height = 400;
-    const margin = { top: 20, right: 20, bottom: 60, left: 40 };
+    const width = 350; // Adjust the width as needed
+    const height = 450;
 
     // Function to create a bar chart
     function createBarChart(containerId, data, yAxisLabel, chartTitle) {

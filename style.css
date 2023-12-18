@@ -8,13 +8,13 @@ body {
 /* Style for the left and right sections */
 .container {
     display: flex;
-    width: 100vw; /* Use full viewport width */
+    width: 50vw; /* Use full viewport width */
 }
 
 /* Style for the left section (bar charts) */
 .left-section {
     flex: 2; /* Adjust the width as needed */
-    padding: 20px;
+    padding: 10px;
     background-color: #f0f0f0; /* Light gray background */
 }
 
