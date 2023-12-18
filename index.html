@@ -6,18 +6,18 @@
     <title>Measles Data Visualization</title>
     <!-- Include D3.js -->
     <script src="https://d3js.org/d3.v5.min.js"></script>
-    <style>
-        /* Add any custom styles for the chart containers if needed */
-        .chart-container {
-            margin: 20px;
-            float: left; /* Ensure charts are displayed side by side */
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="left-section">
+    <div id="measles-chart" class="chart-container"></div>
+</div>
+    <div id="vaccination-rate-chart" class="chart-container"></div>
 
-<div id="measles-chart" class="chart-container"></div>
-<div id="vaccination-rate-chart" class="chart-container"></div>
+<div class="right-section">
+<iframe src="bundesländer.html"></iframe>
+</div>
+
 
 <script>
     // Measles Cases Data
