@@ -22,22 +22,22 @@
 <script>
     // Measles Cases Data
     const MeaslesCasesData = [
-        { key: 'Baden-Württemberg', value: 2619 },
-        { key: 'Bayern', value: 7148 },
-        { key: 'Berlin', value: 2644 },
-        { key: 'Brandenburg', value: 338 },
-        { key: 'Bremen', value: 99 },
-        { key: 'Hamburg', value: 551 },
-        { key: 'Hessen', value: 1186 },
-        { key: 'Mecklenburg-Vorpommern', value: 50 },
-        { key: 'Niedersachsen', value: 2553 },
-        { key: 'Nordrhein-Westfalen', value: 7368 },
-        { key: 'Rheinland-Pfalz', value: 956 },
-        { key: 'Saarland', value: 78 },
-        { key: 'Sachsen', value: 565 },
-        { key: 'Sachsen-Anhalt', value: 236 },
-        { key: 'Schleswig-Holstein', value: 688 },
-        { key: 'Thüringen', value: 357 },
+        { key: 'Baden-Württemberg', value: 24.07 },
+        { key: 'Bayern', value: 55.65 },
+        { key: 'Berlin', value: 75.11 },
+        { key: 'Brandenburg', value: 13.6 },
+        { key: 'Bremen', value: 14.74 },
+        { key: 'Hamburg', value: 30.83 },
+        { key: 'Hessen', value: 19.20 },
+        { key: 'Mecklenburg-Vorpommern', value: 3.1 },
+        { key: 'Niedersachsen', value: 32.2 },
+        { key: 'Nordrhein-Westfalen', value: 41.24 },
+        { key: 'Rheinland-Pfalz', value: 23.59 },
+        { key: 'Saarland', value: 7.83 },
+        { key: 'Sachsen', value: 13.83 },
+        { key: 'Sachsen-Anhalt', value: 10.51 },
+        { key: 'Schleswig-Holstein', value: 24.07 },
+        { key: 'Thüringen', value: 16.44 },
     ];
 
     // Vaccination Rate Data
@@ -66,7 +66,7 @@
     const margin = { top: 20, right: 20, bottom: 60, left: 40 };
 
     // Function to create a bar chart
-    function createBarChart(containerId, data) {
+    function createBarChart(containerId, data, yAxisLabel, chartTitle) {
         // Sort the data in ascending order
         data.sort((a, b) => a.value - b.value);
 
@@ -109,11 +109,28 @@
         // Add y-axis
         svg.append('g')
             .call(d3.axisLeft(yScale));
+
+        // Add y-axis label
+        svg.append('text')
+            .attr('transform', 'rotate(-90)')
+            .attr('y', 0 - margin.left)
+            .attr('x', 0 - height / 2)
+            .attr('dy', '1em')
+            .style('text-anchor', 'middle')
+            .text(yAxisLabel);
+
+        // Add chart title
+        svg.append('text')
+            .attr('x', width / 2)
+            .attr('y', 0 - margin.top / 2)
+            .attr('text-anchor', 'middle')
+            .style('font-size', '16px')
+            .text(chartTitle);
     }
 
     // Create charts
-    createBarChart('measles-chart', MeaslesCasesData);
-    createBarChart('vaccination-rate-chart', VaccinationRateData);
+    createBarChart('measles-chart', MeaslesCasesData, 'Cases per 100,000', 'Measles Cases per 100,000');
+    createBarChart('vaccination-rate-chart', VaccinationRateData, 'Vaccination Rate', 'Vaccination Rate by Bundesland');
 </script>
 
 </body>
