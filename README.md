@@ -30,5 +30,5 @@ fancy!
 So, information is transmitted more easily for any social class.
  
 -> TODO: i want to click on a federal state to get to a plotted visualisation of the data for the selected state.
--> TODO: - SQLite file to replace a database; - JSON compability; - dockerfile
+-> TODO: - SQLite file to replace a database; - JSON compability;
 
