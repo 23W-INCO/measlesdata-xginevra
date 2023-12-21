@@ -13,28 +13,29 @@
 <body>
     <div id="tooltip" class="tooltip" style="opacity: 0; position: absolute;"></div>
 
+    <div class="container">
 
-    <div class="left-section">
-        <h2>Welcome to the Measles Evaluation Application</h2>
-        <p>This application provides visualizations of measles cases and vaccination rates per Bundesland in Germany.</p>
-        <div class="dropdown-container">
-            <label for="chart-selection">Select Chart:</label>
-            <select id="chart-selection" onchange="updateChart()">
-                <option value="" selected disabled hidden>What do you want to see?</option>
-                <option value="measles">Measles Cases per Bundesland</option>
-                <option value="vaccination">Vaccination Rates per Bundesland</option>
-            </select>
-        <div id="chart-container" class="chart-container" style="display: none;">
+        <div class="left-section">
+            <h2>Welcome to the Measles Evaluation Application</h2>
+            <p>This application provides visualizations of measles cases and vaccination rates per Bundesland in Germany.</p>
+            <div class="dropdown-container">
+                <label for="chart-selection">Select Chart:</label>
+                <select id="chart-selection" onchange="updateChart()">
+                    <option value="" selected disabled hidden>What do you want to see?</option>
+                    <option value="measles">Measles Cases per Bundesland</option>
+                    <option value="vaccination">Vaccination Rates per Bundesland</option>
+                </select>
+            </div>
+            <div id="chart-container" class="chart-container" style="display: none;">
+            </div>
         </div>
-    </div>
-    
-    </div>
-    <div class="right-section">
-        <p>For an overview, click on your desired federal state.</p>
-        <iframe src="bundesländer.html"></iframe>
-    </div>
 
-    
+        <div class="right-section">
+            <p>For an overview, click on your desired federal state.</p>
+            <iframe src="bundesländer.html"></iframe>
+        </div>
+
+    </div>
 
     <script>
         const MeaslesCasesData = [
@@ -121,12 +122,10 @@
                 .style('opacity', 0.9);
             tooltip.html(`${d.target.__data__.key}: ${d.target.__data__.value}`)
                 .style('opacity', 1)
-                .style('left', d.pageX + 'px')
-                .style('top', d.pageY + 'px');
-
+                .style('left', event.pageX + 'px')
+                .style('top', event.pageY + 'px');
         })
-
-        .on('mouseout', function (event, d) {
+        .on('mouseout', function () {
             // Hide tooltip on mouseout
             const tooltip = d3.select('#tooltip');
             tooltip.transition()
@@ -182,31 +181,6 @@
             } else if (selectedChart === 'vaccination') {
                 createBarChart('chart-container', VaccinationRateData, 'Vaccination Rate', 'Vaccination Rate by Bundesland');
             }
-        }
-
-        // Function to handle mouseover event
-        function handleMouseOver(d) {
-            const tooltip = d3.select('#tooltip');
-
-            // Show tooltip
-            tooltip.transition().duration(200).style('opacity', 0.9);
-
-            // Position tooltip
-            const xPosition = xScale(d.key) + xScale.bandwidth() / 2 + margin.left; // Include margin
-            const yPosition = yScale(d.value) - 10 + margin.top; // Include margin
-
-            // Set tooltip content
-            tooltip.html(`${d.key}: ${d.value}`)
-                .style('left', `${xPosition}px`)
-                .style('top', `${yPosition}px`);
-        }
-
-        // Function to handle mouseout event
-        function handleMouseOut() {
-            const tooltip = d3.select('#tooltip');
-
-            // Hide tooltip
-            tooltip.transition().duration(200).style('opacity', 0);
         }
     </script>
 
