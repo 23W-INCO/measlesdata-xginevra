@@ -12,7 +12,7 @@
 
 <body>
 <div id="tooltip" class="tooltip" style="opacity: 0; position: absolute;"></div>
-
+<div id="info" class="info" style="position: absolute; top: 50%; left: 500px;"></div>
 <div class="container">
 
     <div class="left-section">
@@ -132,8 +132,15 @@
                     .style('opacity', 0);
             })
             .on('click', function (event, d) {
-                // Handle click event
-                alert(`Clicked on ${d.key}. Additional information can be displayed here.`);
+                // Display information on click
+                const info = document.getElementById('info');
+                info.innerHTML = `
+                        <strong>${d.key}</strong><br>
+                        Population: ${d.Population}<br>
+                        Vaccination Rate: ${d.VaccinationRate}<br>
+                        Measles Cases: ${d.MeaslesCases}<br>
+                        Cases per 100,000: ${d.Per100000}
+                    `;
             });
     }
 
