@@ -1,7 +1,22 @@
 # A visualisation of Measles Data - 
 ## Population, measles cases, vaccination rates
 ### in the Federal States of Germany.
-find me here https://xginevra.github.io/measlesdata/
+find me here https://xginevra.github.io/measlesdata/ 
+Also, i am working with FastAPI! 
+
+--work in progress--
+
+
+### What i achieved so far:
+
+- A web application which provides two "sides" -> right for the map visualization (static!) , left for the clickable bar chart (dynamic!)
+- Heatmap of Germany, clickable, information displayed after clicking and in beautiful coloration (layers) 
+- Dropdown menue to chose which bar chart you want to see for more "serious" data visualisation -> i found barcharts to be most informative and comparable with each other against other methods
+- Description for every Bundesland in the bar chart (still in progress; problems with undefined values)
+- the application takes .json files as data
+
+-> i keep this section of the readme updated as further achievements come to my mind 
+
  
 ------
 - ### Who is your key user group? What are your users trying to achieve/understand/ inquire?
@@ -9,9 +24,7 @@ find me here https://xginevra.github.io/measlesdata/
   federal state are vaccinated and how many of them have actually been sick from measles. It helps deciding whether families should try vaccinating their child or
   not despite several dangers they are exposed to; also it helps finding a fitting federal state with the so called "herd immunity" - so that the children who cannot be vaccinated
    for reasons, find their safe home.
-  
-  We want to compare the vaccination rates with the actual measle cases in each federal state to see how effective the vaccination is - it may reassure parents or not.
-  Also, according to the user group, we want to see where it would be safest to live
+According to the user group, we want to see where it would be safest to live
   for parents with a disabled/immunocompromised child.
 
 -----
@@ -28,7 +41,11 @@ It is visually more appealing to see something you are familiar with (like the m
 random diagrams with numbers and names without a picture to them. Clicking on it immediately produces a reaction from the website -
 fancy! 
 So, information is transmitted more easily for any social class.
- 
--> TODO: i want to click on a federal state to get to a plotted visualisation of the data for the selected state.
--> TODO: - SQLite file to replace a database; - JSON compability;
+
+-------
+# TODOS:
+
+-> TODO: - SQLite file to replace a database with json file to feed.
+-> TODO: - make the click on the bar chart more informative than it is right now (undefined values)
+
 
