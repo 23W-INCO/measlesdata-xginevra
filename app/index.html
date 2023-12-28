@@ -21,9 +21,8 @@
             for their kids. For those who must rely either on "herd-immunity" or
             on a lower number of measles cases in their home-Bundesland.
             <br>
-            Please note that
-            not all of the actual measles cases are reported to the government, hence it is possible that
-            there are slightly more cases than shown.</p>
+            Please note that not all of the actual measles cases are reported to the government, hence it is
+            possible that there are slightly more cases than shown.</p>
         <div class="dropdown-container">
             <label for="chart-selection">Select Chart:</label>
             <select id="chart-selection" onchange="updateChart()">
@@ -45,9 +44,9 @@
 
 <script>
     // Function to create a bar chart
-    function createBarChart(containerId, data, yAxisLabel, chartTitle) {
+    function createBarChart(containerId, data, yAxisLabel, chartTitle, valueKey) {
         // Sort the data in ascending order
-        data.sort((a, b) => a.value - b.value);
+        data.sort((a, b) => a[valueKey] - b[valueKey]);
 
         const width = 400;
         const height = 450;
@@ -67,36 +66,39 @@
             .padding(0.1);
 
         const yScale = d3.scaleLinear()
-            .domain([0, d3.max(data, d => d.value)])
+            .domain([0, d3.max(data, d => d[valueKey])])
             .range([height, 0]);
 
         // Draw the axes
         svg.append('g')
             .attr('transform', `translate(0, ${height})`)
-            .call(d3.axisBottom(xScale));
+            .call(d3.axisBottom(xScale))
+            .selectAll("text")
+            .attr("transform", "rotate(-45)")
+            .style("text-anchor", "end");
 
         svg.append('g')
             .call(d3.axisLeft(yScale));
 
-        // Draw the bars
+        // Inside the section that draws the bars
         svg.selectAll('rect')
             .data(data)
             .enter()
             .append('rect')
             .attr('x', d => xScale(d.Bundesland))
-            .attr('y', d => yScale(d.value))
+            .attr('y', d => yScale(+d[valueKey]))  // Convert to numeric value
             .attr('width', xScale.bandwidth())
-            .attr('height', d => height - yScale(d.value))
+            .attr('height', d => height - yScale(+d[valueKey]))  // Convert to numeric value
             .attr('fill', 'steelblue')
-            .on('click', function (event, d) {
+            .on('click', function (event, data) {
                 // Display information on click
                 const info = document.getElementById('info');
                 info.innerHTML = `
-                        <strong>${d.Bundesland}</strong><br>
-                        Population: ${d.Population}<br>
-                        Vaccination Rate: ${d.VaccinationRate}<br>
-                        Measles Cases: ${d.Masernzahlen}<br>
-                        Cases per 100,000: ${d.Per100000}
+                        <strong>${data.Bundesland}</strong><br>
+                        Population: ${data.Gesamtbevoelkerung}<br>
+                        Vaccination Rate: ${data.Impfrate}<br>
+                        Measles Cases: ${data.Masernzahlen}<br>
+                        Cases per 100,000: ${data.Per100000}
                     `;
             });
 
@@ -105,9 +107,9 @@
             .data(data)
             .enter()
             .append('text')
-            .text(d => d.value)
+            .text(d => d[valueKey])
             .attr('x', d => xScale(d.Bundesland) + xScale.bandwidth() / 2)
-            .attr('y', d => yScale(d.value) - 5)  // Adjust this value for vertical positioning
+            .attr('y', d => yScale(d[valueKey]) - 5)  // Adjust this value for vertical positioning
             .attr('text-anchor', 'middle')
             .attr('fill', 'black');
 
@@ -134,12 +136,12 @@
         d3.select('#chart-container').selectAll('*').remove();
 
         // Load data dynamically from JSON file
-        d3.json('data.json').then(function (data) {
+        d3.json('measles.json').then(function (data) {
             // Create or update chart based on selection
             if (selectedChart === 'measles') {
-                createBarChart('chart-container', data, 'Cases per 100,000', 'Measles Cases per 100,000');
+                createBarChart('chart-container', data, 'Cases per 100,000', 'Measles Cases per 100,000', 'Per100000');
             } else if (selectedChart === 'vaccination') {
-                createBarChart('chart-container', data, 'Vaccination Rate', 'Vaccination Rate by Bundesland');
+                createBarChart('chart-container', data, 'Vaccination Rate', 'Vaccination Rate by Bundesland', 'Impfrate');
             }
         });
     }
