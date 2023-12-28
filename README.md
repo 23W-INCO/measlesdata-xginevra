@@ -2,7 +2,8 @@
 ## Population, measles cases, vaccination rates
 ### in the Federal States of Germany.
 find me here https://xginevra.github.io/measlesdata/ 
-Also, i am working with FastAPI! 
+Also, i am working with FastAPI! <br>
+All the necessary files are stored and regularly updated along with the files in the root folder of the repository. 
 
 --work in progress--
 
@@ -39,13 +40,13 @@ to see when visiting the website.
 - ### How do the other features of your application further help your users achieve this task?
 It is visually more appealing to see something you are familiar with (like the map of your country) rather than seeing just 
 random diagrams with numbers and names without a picture to them. Clicking on it immediately produces a reaction from the website -
-fancy! 
+fancy! <br>
 So, information is transmitted more easily for any social class.
 
 -------
 # TODOS:
 
--> TODO: - SQLite file to replace a database with json file to feed.
+-> TODO: - SQLite file to replace a database with json file to feed. <br>
 -> TODO: - make the click on the bar chart more informative than it is right now (undefined values)
 
 
