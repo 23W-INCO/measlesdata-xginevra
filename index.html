@@ -90,7 +90,7 @@
             .attr('width', xScale.bandwidth())
             .attr('height', d => height - yScale(+d[valueKey]))  // Convert to numeric value
             .attr('fill', 'steelblue')
-            .on('click', function (event, d) {
+            .on('click', function (event, data) {
                 // Display information on click
                 const info = document.getElementById('info');
                 info.innerHTML = `
