@@ -16,7 +16,12 @@ All the necessary files are stored in the /app folder and regularly updated alon
 - Description for every Bundesland in the bar chart (still in progress; problems with undefined values)
 - the application takes .json files as data
 
--> i keep this section of the readme updated as further achievements come to my mind 
+-> i keep this section of the readme updated as further achievements come to my mind <br> <br>
+
+# TODOS:
+
+-> TODO: - SQLite file to replace a database with json file to feed. <br>
+-> TODO: - make the click on the bar chart more informative than it is right now (undefined values)
 
  
 ------
@@ -44,9 +49,6 @@ fancy! <br>
 So, information is transmitted more easily for any social class.
 
 -------
-# TODOS:
 
--> TODO: - SQLite file to replace a database with json file to feed. <br>
--> TODO: - make the click on the bar chart more informative than it is right now (undefined values)
 
 
