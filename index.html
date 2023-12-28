@@ -45,6 +45,8 @@
 </div>
 
 <script>
+
+
         // Function to create a bar chart
         function createBarChart(containerId, data, yAxisLabel, chartTitle) {
             // Sort the data in ascending order
@@ -93,18 +95,20 @@
                 .attr('height', d => height - yScale(+d.Masernzahlen))
                 .attr('fill', 'steelblue')
                 .on('click', function (event, d) {
+                    console.log('All Data Points:', data);
+                    console.log('Clicked Data Point Index:', d);
+                    console.log('Clicked Data Point:', data[d]);
                     // Display information on click
                     const info = document.getElementById('info');
                     info.innerHTML = `
-                            <strong>${d.Bundesland}</strong><br>
-                            Population: ${d.Gesamtbevoelkerung}<br>
-                            Vaccination Rate: ${d.Impfrate}<br>
-                            Measles Cases: ${d.Masernzahlen}<br>
-                            Cases per 100,000: ${d.Per100000}
-                        `;
+                <strong>${d.Bundesland}</strong><br>
+                Population: ${d.Gesamtbevoelkerung}<br>
+                Measles Cases: ${d.Masernzahlen}<br>
+                Cases per 100,000: ${d.Per100000}
+            `;
                 });
 
-            // Draw text labels on the bars
+// Draw text labels on the bars
             svg.selectAll('text')
                 .data(data)
                 .enter()
@@ -114,6 +118,7 @@
                 .attr('y', d => yScale(+d.Masernzahlen) - 5)
                 .attr('text-anchor', 'middle')
                 .attr('fill', 'black');
+
 
             // Draw chart title
             svg.append('text')
@@ -176,15 +181,14 @@
                     // Display information on click
                     const info = document.getElementById('info');
                     info.innerHTML = `
-                            <strong>${d.Bundesland}</strong><br>
-                            Population: ${d.Gesamtbevoelkerung}<br>
-                            Vaccination Rate: ${d.Impfrate}<br>
-                            Measles Cases: ${d.Masernzahlen}<br>
-                            Cases per 100,000: ${d.Per100000}
-                        `;
+                <strong>${d.Bundesland}</strong><br>
+                Population: ${d.Gesamtbevoelkerung}<br>
+                Vaccination Rate: ${d.Impfrate}<br>
+                Cases per 100,000: ${d.Per100000}
+            `;
                 });
 
-            // Draw text labels on the bars
+// Draw text labels on the bars
             svg.selectAll('text')
                 .data(data)
                 .enter()
