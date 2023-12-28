@@ -3,7 +3,7 @@
 ### in the Federal States of Germany.
 find me here https://xginevra.github.io/measlesdata/ 
 Also, i am working with FastAPI! <br>
-All the necessary files are stored and regularly updated along with the files in the root folder of the repository. 
+All the necessary files are stored in the /app folder and regularly updated along with the files in the root folder of the repository. 
 
 --work in progress--
 
