@@ -16,6 +16,7 @@ All the necessary files are stored in the /app folder and regularly updated alon
 - Dropdown menue to chose which bar chart you want to see for more "serious" data visualisation -> i found barcharts to be most informative and comparable with each other against other methods
 - Description for every Bundesland in the bar chart (still in progress; problems with undefined values)
 - the application takes .json files as data
+- created a docker file and tried it out in codespaces (forgot to stop the codespace, now I can't access it anymore due to limitations of github) 
 
 -> i keep this section of the readme updated as further achievements come to my mind <br> <br>
 
