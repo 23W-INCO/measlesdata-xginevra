@@ -23,7 +23,6 @@ All the necessary files are stored in the /app folder and regularly updated alon
 # TODOS:
 
 -> TODO: - SQLite file to replace a database with json file to feed. <br>
--> TODO: - make clicking on the bar chart more informative than it is right now (undefined values)
 
  
 ------
