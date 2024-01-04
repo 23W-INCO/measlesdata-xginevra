@@ -92,13 +92,13 @@
             .attr('width', xScale.bandwidth())
             .attr('height', d => height - yScale(+d[valueKey]))  // Convert to numeric value
             .attr('fill', 'steelblue')
-            .on('click', function (event, data) {
+            .on('click', function (data=d) {
                 // Display information on click
                 const info = document.getElementById('info');
                 info.innerHTML = `
                         <strong>${data.Bundesland}</strong><br>
                         Population: ${data.Gesamtbevoelkerung}<br>
-                        Vaccination Rate: ${data.Impfrate}<br>
+                        Vaccination Rate: ${data.Impfrate}%<br>
                         Measles Cases: ${data.Masernzahlen}<br>
                         Cases per 100,000: ${data.Per100000}
                     `;

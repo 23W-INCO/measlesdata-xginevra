@@ -79,4 +79,4 @@ for idx, row in merged_data.iterrows():
 folium.LayerControl().add_to(m)
 
 # Save the map as an HTML file
-m.save('bundeslaender.html')
+m.save('bundesländer.html')
