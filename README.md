@@ -14,7 +14,7 @@ All the necessary files are stored in the /app folder and regularly updated alon
 - A web application which provides two "sides" -> right for the map visualization (static!) , left for the clickable bar chart (dynamic!)
 - Heatmap of Germany, clickable, information displayed after clicking and in beautiful coloration (layers) 
 - Dropdown menue to chose which bar chart you want to see for more "serious" data visualisation -> i found barcharts to be most informative and comparable with each other against other methods
-- Description for every Bundesland in the bar chart (still in progress; problems with undefined values)
+- clickable: Description for every Bundesland in the bar chart 
 - the application takes .json files as data
 - created a docker file and tried it out in codespaces (forgot to stop the codespace, now I can't access it anymore due to limitations of github) 
 
@@ -23,7 +23,6 @@ All the necessary files are stored in the /app folder and regularly updated alon
 # TODOS:
 
 -> TODO: - SQLite file to replace a database with json file to feed. <br>
--> TODO: - make clicking on the bar chart more informative than it is right now (undefined values)
 
  
 ------
