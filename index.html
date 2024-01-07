@@ -8,6 +8,40 @@
     <!-- Include D3.js -->
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <link rel="stylesheet" href="style.css">
+    <script>
+        // Function to update the chart based on the dropdown selection
+        function updateChart() {
+            const chartSelection = document.getElementById('chart-selection');
+            const selectedChart = chartSelection.value;
+
+            // Show or hide the chart based on the selection
+            const chartContainer = document.getElementById('chart-container');
+            chartContainer.style.display = selectedChart ? 'block' : 'none';
+
+            // Clear existing chart
+            d3.select('#chart-container').selectAll('*').remove();
+
+            // Determine the base URL dynamically based on the environment
+            const baseURL = window.location.hostname === 'localhost' ? 'http://localhost:8000' : '';
+
+            // Load data dynamically from the FastAPI server
+            fetch(`${baseURL}/data`)
+                .then(response => response.json())
+                .then(data => {
+                    // Create or update chart based on selection
+                    if (selectedChart === 'measles') {
+                        createBarChart('chart-container', data, 'Cases per 100,000', 'Measles Cases per 100,000', 'cases_100000');
+                    } else if (selectedChart === 'vaccination') {
+                        createBarChart('chart-container', data, 'Vaccination Rate', 'Vaccination Rate by Bundesland', 'vaccination_rate');
+                    }
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        }
+
+        // Initial chart creation (you can change 'measles' to 'vaccination' if you want the initial chart to be vaccination)
+        updateChart();
+    </script>
+
 </head>
 
 <body>
@@ -36,7 +70,7 @@
     </div>
 
     <div class="right-section">
-                <h2>Heatmap of measles cases & vaccination rates</h2>
+        <h2>Heatmap of measles cases & vaccination rates</h2>
         <p>For an overview, click on your desired federal state.<br>
             Please choose your desired layers by clicking on the "layers"-button.</p>
         <iframe src="bundesländer.html"></iframe>
@@ -87,7 +121,7 @@
             .data(data)
             .enter()
             .append('rect')
-            .attr('x', d => xScale(d.Bundesland))
+            .attr('x', d => xScale(d.location))
             .attr('y', d => yScale(+d[valueKey]))  // Convert to numeric value
             .attr('width', xScale.bandwidth())
             .attr('height', d => height - yScale(+d[valueKey]))  // Convert to numeric value
@@ -96,11 +130,11 @@
                 // Display information on click
                 const info = document.getElementById('info');
                 info.innerHTML = `
-                        <strong>${data.Bundesland}</strong><br>
-                        Population: ${data.Gesamtbevoelkerung}<br>
-                        Vaccination Rate: ${data.Impfrate}%<br>
-                        Measles Cases: ${data.Masernzahlen}<br>
-                        Cases per 100,000: ${data.Per100000}
+                        <strong>${data.location}</strong><br>
+                        Population: ${data.population}<br>
+                        Vaccination Rate: ${data.vaccination_rate}%<br>
+                        Measles Cases: ${data.cases}<br>
+                        Cases per 100,000: ${data.cases_100000}
                     `;
             });
 
@@ -110,7 +144,7 @@
             .enter()
             .append('text')
             .text(d => d[valueKey])
-            .attr('x', d => xScale(d.Bundesland) + xScale.bandwidth() / 2)
+            .attr('x', d => xScale(d.location) + xScale.bandwidth() / 2)
             .attr('y', d => yScale(d[valueKey]) - 5)  // Adjust this value for vertical positioning
             .attr('text-anchor', 'middle')
             .attr('fill', 'black');
@@ -126,30 +160,30 @@
     }
 
     // Function to update the chart based on the dropdown selection
-    function updateChart() {
-        const chartSelection = document.getElementById('chart-selection');
-        const selectedChart = chartSelection.value;
-
-        // Show or hide the chart based on the selection
-        const chartContainer = document.getElementById('chart-container');
-        chartContainer.style.display = selectedChart ? 'block' : 'none';
-
-        // Clear existing chart
-        d3.select('#chart-container').selectAll('*').remove();
-
-        // Load data dynamically from JSON file
-        d3.json('measles.json').then(function (data) {
-            // Create or update chart based on selection
-            if (selectedChart === 'measles') {
-                createBarChart('chart-container', data, 'Cases per 100,000', 'Measles Cases per 100,000', 'Per100000');
-            } else if (selectedChart === 'vaccination') {
-                createBarChart('chart-container', data, 'Vaccination Rate', 'Vaccination Rate by Bundesland', 'Impfrate');
-            }
-        });
-    }
-
-    // Initial chart creation (you can change 'measles' to 'vaccination' if you want the initial chart to be vaccination)
-    updateChart();
+    // function updateChart() {
+    //     const chartSelection = document.getElementById('chart-selection');
+    //     const selectedChart = chartSelection.value;
+    //
+    //     // Show or hide the chart based on the selection
+    //     const chartContainer = document.getElementById('chart-container');
+    //     chartContainer.style.display = selectedChart ? 'block' : 'none';
+    //
+    //     // Clear existing chart
+    //     d3.select('#chart-container').selectAll('*').remove();
+    //
+    //     // Load data dynamically from JSON file
+    //     d3.json('measles.json').then(function (data) {
+    //         // Create or update chart based on selection
+    //         if (selectedChart === 'measles') {
+    //             createBarChart('chart-container', data, 'Cases per 100,000', 'Measles Cases per 100,000', 'Per100000');
+    //         } else if (selectedChart === 'vaccination') {
+    //             createBarChart('chart-container', data, 'Vaccination Rate', 'Vaccination Rate by Bundesland', 'Impfrate');
+    //         }
+    //     });
+    // }
+    //
+    // // Initial chart creation (you can change 'measles' to 'vaccination' if you want the initial chart to be vaccination)
+    // updateChart();
 </script>
 
 </body>
