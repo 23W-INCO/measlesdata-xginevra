@@ -1,40 +1,13 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, UploadFile, File
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
-import databases
-import sqlalchemy
-from sqlalchemy import create_engine, MetaData, Table
-
-DATABASE_URL = "sqlite:///data_for_web_application.db"
-
-metadata = MetaData()
-
-database = databases.Database(DATABASE_URL)
-engine = create_engine(DATABASE_URL)
-metadata.create_all(engine)
-
-table = Table(
-    "measles_data",
-    metadata,
-    sqlalchemy.Column("location", sqlalchemy.String),
-    sqlalchemy.Column("cases_100000", sqlalchemy.Float),
-    sqlalchemy.Column("vaccination_rate", sqlalchemy.Float),
-)
+from databases import Database
+import sqlite3
+from sqlalchemy import Table, Column, Integer, String, MetaData, create_engine
+from sqlalchemy.orm import sessionmaker
 
 app = FastAPI()
-
-# Allow all origins during development
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["http://localhost:8000"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
-# Serve static files (HTML, JS, CSS)
-app.mount("/", StaticFiles(directory="./", html=True), name="static")
 
 
 # Endpoint to serve the HTML file
@@ -43,15 +16,55 @@ def get_html():
     return FileResponse("./index.html")
 
 
-# Endpoint to fetch data
+# Serve static files (HTML, JS, CSS)
+# app.mount("/", StaticFiles(directory="./", html=True), name="static")
+#
+# SQLALCHEMY_DATABASE_URL = "sqlite:///data_for_web_application.db"
+# engine = create_engine(
+#     SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False}
+# )
+#
+# SessionLocal = sessionmaker(autocommit=False,autoflush=False,bind=engine)
+#
+# database = Database("sqlite:///data_for_web_application.db")
+#
+# app.add_middleware(
+#     CORSMiddleware,
+#     allow_origins=["http://127.0.0.1:8000"],
+#     allow_credentials=True,
+#     allow_methods=["*"],
+#     allow_headers=["*"],
+# )
+
+
 @app.get("/data")
 async def get_data():
-    query = table.select()
-    data = await database.fetch_all(query)
+    # Replace 'your_database_file.db' with your actual database file
+    conn = sqlite3.connect('data_for_web_application.db')
+    cursor = conn.cursor()
+
+    query = f"SELECT * FROM measles_data"
+    cursor.execute(query)
+    data = cursor.fetchall()
+
+    conn.close()
     return data
 
-if __name__ == "__main__":
-    import uvicorn
 
-    # Run the FastAPI app with uvicorn
-    uvicorn.run(app, host="127.0.0.1", port=8000, reload=True)
+# @app.post("/data")
+# async def fetch_data(id: int):
+#     query = f"SELECT * FROM measles_data WHERE id ={id}"
+#     results = await database.fetch_all(query=query)
+#
+#     return results
+
+
+
+# @app.on_event("startup")
+# async def database_connect():
+#     await database.connect()
+#
+#
+# @app.on_event("shutdown")
+# async def database_disconnect():
+#     await database.disconnect()
