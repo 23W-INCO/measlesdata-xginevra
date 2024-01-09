@@ -3,7 +3,6 @@ from fastapi.responses import FileResponse
 import sqlite3
 from fastapi.middleware.cors import CORSMiddleware
 
-
 app = FastAPI()
 
 app.add_middleware(
@@ -13,6 +12,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 # Endpoint to serve the HTML file
 @app.get("/")
@@ -66,7 +66,18 @@ async def get_data1():
     cursor.close()
     conn.close()
 
-    return data
+    data_list = []
+    for items in data:
+        data_dict = {}
+        data_dict["location"] = items[1]
+        data_dict["population"] = items[2]
+        data_dict["cases"] = items[3]
+        data_dict["vaccination_rate"] = items[4]
+        data_dict["cases_100000"] = items[5]
+
+        data_list.append(data_dict)
+    return data_list
+
 
 @app.get("/cities")
 async def get_data2():
@@ -88,4 +99,12 @@ async def get_data2():
     cursor.close()
     conn.close()
 
-    return data
+    data_list = []
+    for items in data:
+        data_dict = {}
+        data_dict["location"] = items[1]
+        data_dict["population"] = items[2]
+        data_dict["cases"] = items[3]
+
+        data_list.append(data_dict)
+    return data_list
