@@ -1,14 +1,18 @@
-from fastapi import FastAPI, UploadFile, File
+from fastapi import FastAPI
 from fastapi.responses import FileResponse
-from fastapi.staticfiles import StaticFiles
-from fastapi.middleware.cors import CORSMiddleware
-from databases import Database
 import sqlite3
-from sqlalchemy import Table, Column, Integer, String, MetaData, create_engine
-from sqlalchemy.orm import sessionmaker
+from fastapi.middleware.cors import CORSMiddleware
+
 
 app = FastAPI()
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://127.0.0.1:8000/"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Endpoint to serve the HTML file
 @app.get("/")
@@ -18,28 +22,11 @@ def get_html():
 
 # Serve static files (HTML, JS, CSS)
 # app.mount("/", StaticFiles(directory="./", html=True), name="static")
-#
-# SQLALCHEMY_DATABASE_URL = "sqlite:///data_for_web_application.db"
-# engine = create_engine(
-#     SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False}
-# )
-#
-# SessionLocal = sessionmaker(autocommit=False,autoflush=False,bind=engine)
-#
-# database = Database("sqlite:///data_for_web_application.db")
-#
-# app.add_middleware(
-#     CORSMiddleware,
-#     allow_origins=["http://127.0.0.1:8000"],
-#     allow_credentials=True,
-#     allow_methods=["*"],
-#     allow_headers=["*"],
-# )
 
 
 @app.get("/data")
 async def get_data():
-    # Replace 'your_database_file.db' with your actual database file
+    # do this for every visualisation that requires parts of the data
     conn = sqlite3.connect('data_for_web_application.db')
     cursor = conn.cursor()
 
@@ -51,20 +38,54 @@ async def get_data():
     return data
 
 
-# @app.post("/data")
-# async def fetch_data(id: int):
-#     query = f"SELECT * FROM measles_data WHERE id ={id}"
-#     results = await database.fetch_all(query=query)
-#
-#     return results
+@app.get("/measlesdata1")
+async def get_data1():
+    # do this for every visualisation that requires parts of the data
+    conn = sqlite3.connect('data_for_web_application.db')
+    cursor = conn.cursor()
 
+    query = '''
+        SELECT *
+        FROM measles_data
+        WHERE location IN (
+            'baden-wuerttemberg', 'bayern', 'berlin', 'brandenburg', 'bremen',
+            'hamburg', 'hessen', 'mecklenburg-vorpommern', 'niedersachsen',
+            'nordrhein-westfalen', 'rheinland-pfalz', 'saarland', 'sachsen',
+            'sachsen-anhalt', 'schleswig-holstein', 'thueringen'
+        )
+        AND population <> 'N.A'
+        AND cases <> 'N.A'
+        AND vaccination_rate <> 'N.A'
+        AND cases_100000 <> 'N.A';
+    '''
 
+    cursor.execute(query)
+    data = cursor.fetchall()
 
-# @app.on_event("startup")
-# async def database_connect():
-#     await database.connect()
-#
-#
-# @app.on_event("shutdown")
-# async def database_disconnect():
-#     await database.disconnect()
+    # Close the cursor and connection
+    cursor.close()
+    conn.close()
+
+    return data
+
+@app.get("/cities")
+async def get_data2():
+    # do this for every visualisation that requires parts of the data
+    conn = sqlite3.connect('data_for_web_application.db')
+    cursor = conn.cursor()
+
+    query = '''
+        SELECT *
+        FROM measles_data
+        WHERE vaccination_rate = 'N.A'
+        AND cases_100000 = 'N.A';
+    '''
+
+    cursor.execute(query)
+    data = cursor.fetchall()
+
+    # Close the cursor and connection
+    cursor.close()
+    conn.close()
+
+    return data

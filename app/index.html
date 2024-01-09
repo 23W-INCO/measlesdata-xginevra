@@ -8,102 +8,223 @@
     <!-- Include D3.js -->
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Apply flex layout to the body */
+        body {
+            display: flex;
+            flex-direction: row; /* Stack children horizontally */
+            margin: 0; /* Remove default margin to avoid extra space around the body */
+            font-family: Arial, sans-serif;
+        }
+
+        #info {
+            z-index: 999;
+            background-color: #f1b2b5;
+        }
+
+        /* Style for the container */
+        .container {
+            display: flex;
+            flex-direction: row; /* Stack children horizontally */
+            margin-right: 20px
+        }
+
+        /* Style for the left section (bar charts) */
+        .left-section {
+            box-sizing: border-box; /* Include padding and border in the total width/height */
+            padding: 20px; /* Add padding to the left section */
+            background-color: #f1b2b5; /* altrosa background */
+            width: 50%;
+        }
+
+        /* Style for the right section (iframe) */
+        .right-section {
+            width: 50%;
+            padding: 20px;
+            background-color: #e0e0e0; /* Slightly darker gray background */
+            margin-top: 0px; /* Add margin space at the top */
+            margin-right: 0px;
+        }
+
+        /* Style for the iframe */
+        iframe {
+            width: 100%;
+            height: 100vh; /* Adjust the maximum height as needed */
+            border: none;
+            margin-top: 20px
+        }
+    </style>
     <script>
-    fetch('http://localhost:8000/data')
-    .then(response => response.json())
-    .then(data => {
-        // Process the data
-    })
-    .catch(error => console.error('Error fetching data:', error));
+
+// function createBarChart(containerId, data, yAxisLabel, chartTitle, valueKey) {
+//     // Sort data if it's an array
+//     if (Array.isArray(data)) {
+//         data.sort((a, b) => a[valueKey] - b[valueKey]);
+//     } else {
+//         console.error("Data is not an array.");
+//         return; // Exit the function if data is not an array
+//     }
+//
+//     const width = 400;
+//     const height = 450;
+//     const margin = { top: 30, right: 20, bottom: 80, left: 60 };
+//
+//     const svg = d3.select(`#${containerId}`)
+//         .append('svg')
+//         .attr('width', width + margin.left + margin.right)
+//         .attr('height', height + margin.top + margin.bottom)
+//         .append('g')
+//         .attr('transform', `translate(${margin.left},${margin.top})`);
+//
+//     // Set up the scales
+//     const xScale = d3.scaleBand()
+//         .domain(data.map(d => d.location))
+//         .range([0, width])
+//         .padding(0.1);
+//
+//     const yScale = d3.scaleLinear()
+//         .domain([0, d3.max(data, d => d[valueKey])])
+//         .range([height, 0]);
+//
+//     // Draw the axes
+//     svg.append('g')
+//         .attr('transform', `translate(0, ${height})`)
+//         .call(d3.axisBottom(xScale))
+//         .selectAll("text")
+//         .attr("transform", "rotate(-45)")
+//         .style("text-anchor", "end");
+//
+//     svg.append('g')
+//         .call(d3.axisLeft(yScale));
+//
+//     // Inside the section that draws the bars
+//     svg.selectAll('rect')
+//         .data(data)
+//         .enter()
+//         .append('rect')
+//         .attr('x', d => xScale(d.location))
+//         .attr('y', d => yScale(d[valueKey]) || 0) // Use 0 if yScale returns undefined or NaN
+//         .attr('width', xScale.bandwidth())
+//         .attr('height', d => height - (yScale(d[valueKey]) || 0)) // Use 0 if yScale returns undefined or NaN
+//         .attr('fill', 'steelblue')
+//         .on('click', function (data = d) {
+//             // Display information on click
+//             const info = document.getElementById('info');
+//             info.innerHTML = `
+//                     <strong>${data.location}</strong><br>
+//                     Population: ${data.population}<br>
+//                     Vaccination Rate: ${data.vaccination_rate}%<br>
+//                     Measles Cases: ${data.cases}<br>
+//                     Cases per 100,000: ${data.cases_100000}
+//                 `;
+//         });
+//
+//     // Draw text labels on the bars
+//     svg.selectAll('.bar-label') // Use a class for text elements
+//         .data(data)
+//         .enter()
+//         .append('text')
+//         .text(d => d[valueKey])
+//         .attr('class', 'bar-label') // Add a class to the text elements
+//         .attr('x', d => xScale(d.location) + xScale.bandwidth() / 2)
+//         .attr('y', d => (yScale(d[valueKey]) || 0) + 5) // Adjust the vertical positioning
+//         .attr('text-anchor', 'middle')
+//         .attr('fill', 'black');
+//
+//     // Draw chart title
+//     svg.append('text')
+//         .attr('x', width / 2)
+//         .attr('y', 0 - (margin.top / 2))
+//         .attr('text-anchor', 'middle')
+//         .style('font-size', '16px')
+//         .style('text-decoration', 'underline')
+//         .text(chartTitle);
+// }
 
 
-        function updateChart() {
-    const chartSelection = document.getElementById('chart-selection');
-    const selectedChart = chartSelection.value;
-
-    // Show or hide the chart based on the selection
-    const chartContainer = document.getElementById('chart-container');
-    chartContainer.style.display = selectedChart ? 'block' : 'none';
-
-    // Clear existing chart
-    d3.select('#chart-container').selectAll('*').remove();
-
-    // Determine the base URL dynamically based on the environment
-    const baseURL = window.location.hostname === 'localhost' ? 'http://localhost:8000' : '';
-
-    // Load data dynamically from the FastAPI server
-    fetch(`${baseURL}/data`)
-        .then(response => response.json())
-        .then(data => {
-            // Check if the data is an array
-            if (Array.isArray(data)) {
-                // Create or update chart based on selection
-                if (selectedChart === 'measles') {
-                    createBarChart('chart-container', data, 'Cases per 100,000', 'Measles Cases per 100,000', 'cases_100000');
-                } else if (selectedChart === 'vaccination') {
-                    createBarChart('chart-container', data, 'Vaccination Rate', 'Vaccination Rate by Bundesland', 'vaccination_rate');
-                }
-            } else {
-                console.error('Invalid data format:', data);
-            }
-        })
-        .catch(error => console.error('Error fetching data:', error));
-}
-
-
-        // Initial chart creation (you can change 'measles' to 'vaccination' if you want the initial chart to be vaccination)
-        updateChart();
     </script>
 
 </head>
 
 <body>
-<div id="info" class="info" style="position: absolute; top: 50%; left: 500px;"></div>
-<div class="container">
+    <div id="info" class="info" style="position: absolute; top: 50%; left: 500px;"></div>
+    <div class="container">
 
-    <div class="left-section">
-        <h2>Welcome to the Measles Evaluation Application</h2>
-        <p>For those who want to find a fitting Bundesland to their needs.<br>
-            For parents of disabled/immunosuppressed children who want a safe home
-            for their kids. For those who must rely either on "herd-immunity" or
-            on a lower number of measles cases in their home-Bundesland.
-            <br>
-            Please note that not all of the actual measles cases are reported to the government, hence it is
-            possible that there are slightly more cases than shown.</p>
-        <div class="dropdown-container">
-            <label for="chart-selection">Select Chart:</label>
-            <select id="chart-selection" onchange="updateChart()">
-                <option value="" selected disabled hidden>What do you want to see?</option>
-                <option value="measles">Measles Cases per Bundesland</option>
-                <option value="vaccination">Vaccination Rates per Bundesland</option>
-            </select>
+        <div class="left-section">
+            <h2>Welcome to the Measles Evaluation Application</h2>
+            <p>For those who want to find a fitting Bundesland to their needs.<br>
+                For parents of disabled/immunosuppressed children who want a safe home
+                for their kids. For those who must rely either on "herd-immunity" or
+                on a lower number of measles cases in their home-Bundesland.
+                <br>
+                Please note that not all of the actual measles cases are reported to the government, hence it is
+                possible that there are slightly more cases than shown.</p>
+            <div class="dropdown-container">
+                <label for="chart-selection">Select Chart:</label>
+                <select id="chart-selection" onchange="updateChart()">
+                    <option value="" selected disabled hidden>What do you want to see?</option>
+                    <option value="measles">Measles Cases per Bundesland</option>
+                    <option value="vaccination">Vaccination Rates per Bundesland</option>
+                </select>
+
+            </div>
+            <div id="chart-container" class="chart-container" style="display: none;">
+            </div>
         </div>
-        <div id="chart-container" class="chart-container" style="display: none;">
+
+        <div class="right-section">
+            <h2>Heatmap of measles cases & vaccination rates</h2>
+            <p>For an overview, click on your desired federal state.<br>
+                Please choose your desired layers by clicking on the "layers"-button.</p>
+            <iframe src="bundeslender.html"></iframe>
         </div>
+
     </div>
-
-    <div class="right-section">
-        <h2>Heatmap of measles cases & vaccination rates</h2>
-        <p>For an overview, click on your desired federal state.<br>
-            Please choose your desired layers by clicking on the "layers"-button.</p>
-        <iframe src="bundesländer.html"></iframe>
-    </div>
-
-</div>
-
 <script>
-    // Function to create a bar chart
-    function createBarChart(containerId, data, yAxisLabel, chartTitle, valueKey) {
-        // Sort the data in ascending order
-        // Log the data to the console for inspection
-console.log("Data:", data);
+    // function updateChart() {
+    //         // Show or hide the chart based on the selection
+    //         const chartSelection = document.getElementById('chart-selection'), selectedChart = chartSelection.value,
+    //             chartContainer = document.getElementById('chart-container');
+    //         chartContainer.style.display = selectedChart ? 'block' : 'none';
+    //
+    //         // Clear existing chart
+    //         d3.select('#chart-container').selectAll('*').remove();
+    //
+    //         // Determine the base URL dynamically based on the environment
+    //         const baseURL = window.location.hostname === 'localhost' ? 'http://localhost:8000' : '';
+    //
+    //         // Load data dynamically from the FastAPI server
+    //         fetch(`${baseURL}/measlesdata1`)
+    //             .then(response => response.json())
+    //             .then(data => {
+    //                 // Check if the data is an array
+    //                 if (Array.isArray(data)) {
+    //                     // Create or update chart based on selection
+    //                     if (selectedChart === 'measles') {
+    //                         createBarChart('chart-container', data, 'Cases per 100,000', 'Measles Cases per 100,000', 'cases_100000');
+    //                     } else if (selectedChart === 'vaccination') {
+    //                         createBarChart('chart-container', data, 'Vaccination Rate', 'Vaccination Rate by Bundesland', 'vaccination_rate');
+    //                     }
+    //                 } else {
+    //                     console.error('Invalid data format:', data);
+    //                 }
+    //             })
+    //             .catch(error => console.error('Error fetching data:', error));
+    //     }
+    //     updateChart();
 
-// Sort data if it's an array
-if (Array.isArray(data)) {
-    data.sort((a, b) => a[valueKey] - b[valueKey]);
-} else {
-    console.error("Data is not an array.");
-}
+    window.onload = function () {
+    // Your entire JavaScript code here
+
+    function createBarChart(containerId, data, yAxisLabel, chartTitle, valueKey) {
+        // Sort data if it's an array
+        if (Array.isArray(data)) {
+            data.sort((a, b) => a[valueKey] - b[valueKey]);
+        } else {
+            console.error("Data is not an array.");
+            return; // Exit the function if data is not an array
+        }
+
         const width = 400;
         const height = 450;
         const margin = { top: 30, right: 20, bottom: 80, left: 60 };
@@ -142,30 +263,31 @@ if (Array.isArray(data)) {
             .enter()
             .append('rect')
             .attr('x', d => xScale(d.location))
-            .attr('y', d => yScale(+d[valueKey]))  // Convert to numeric value
+            .attr('y', d => yScale(d[valueKey]) || 0) // Use 0 if yScale returns undefined or NaN
             .attr('width', xScale.bandwidth())
-            .attr('height', d => height - yScale(+d[valueKey]))  // Convert to numeric value
+            .attr('height', d => height - (yScale(d[valueKey]) || 0)) // Use 0 if yScale returns undefined or NaN
             .attr('fill', 'steelblue')
-            .on('click', function (data=d) {
+            .on('click', function (data = d) {
                 // Display information on click
                 const info = document.getElementById('info');
                 info.innerHTML = `
-                        <strong>${data.location}</strong><br>
-                        Population: ${data.population}<br>
-                        Vaccination Rate: ${data.vaccination_rate}%<br>
-                        Measles Cases: ${data.cases}<br>
-                        Cases per 100,000: ${data.cases_100000}
-                    `;
+                    <strong>${data.location}</strong><br>
+                    Population: ${data.population}<br>
+                    Vaccination Rate: ${data.vaccination_rate}%<br>
+                    Measles Cases: ${data.cases}<br>
+                    Cases per 100,000: ${data.cases_100000}
+                `;
             });
 
         // Draw text labels on the bars
-        svg.selectAll('text')
+        svg.selectAll('.bar-label') // Use a class for text elements
             .data(data)
             .enter()
             .append('text')
             .text(d => d[valueKey])
+            .attr('class', 'bar-label') // Add a class to the text elements
             .attr('x', d => xScale(d.location) + xScale.bandwidth() / 2)
-            .attr('y', d => yScale(d[valueKey]) - 5)  // Adjust this value for vertical positioning
+            .attr('y', d => (yScale(d[valueKey]) || 0) + 5) // Adjust the vertical positioning
             .attr('text-anchor', 'middle')
             .attr('fill', 'black');
 
@@ -179,39 +301,53 @@ if (Array.isArray(data)) {
             .text(chartTitle);
     }
 
-   // Function to update the chart based on the dropdown selection
-        function updateChart() {
-            const chartSelection = document.getElementById('chart-selection');
-            const selectedChart = chartSelection.value;
+    function updateChart() {
+        // Show or hide the chart based on the selection
+        const chartSelection = document.getElementById('chart-selection');
+        const selectedChart = chartSelection.value;
+        const chartContainer = document.getElementById('chart-container');
+        chartContainer.style.display = selectedChart ? 'block' : 'none';
 
-            // Show or hide the chart based on the selection
-            const chartContainer = document.getElementById('chart-container');
-            chartContainer.style.display = selectedChart ? 'block' : 'none';
+        // Clear existing chart
+        d3.select('#chart-container').selectAll('*').remove();
 
-            // Clear existing chart
-            d3.select('#chart-container').selectAll('*').remove();
+        // Determine the base URL dynamically based on the environment
+        const baseURL = window.location.hostname === 'localhost' ? 'http://localhost:8000' : '';
 
-            // Determine the base URL dynamically based on the environment
-            const baseURL = window.location.hostname === 'localhost' ? 'http://localhost:8000' : '';
-
-            // Load data dynamically from the FastAPI server
-            fetch(`${baseURL}/data`)
-                .then(response => response.json())
-                .then(data => {
+        // Load data dynamically from the FastAPI server
+        fetch(`${baseURL}/measlesdata1`)
+            .then(response => response.json())
+            .then(data => {
+                // Check if the data is an array
+                if (Array.isArray(data)) {
                     // Create or update chart based on selection
                     if (selectedChart === 'measles') {
                         createBarChart('chart-container', data, 'Cases per 100,000', 'Measles Cases per 100,000', 'cases_100000');
                     } else if (selectedChart === 'vaccination') {
                         createBarChart('chart-container', data, 'Vaccination Rate', 'Vaccination Rate by Bundesland', 'vaccination_rate');
                     }
-                })
-                .catch(error => console.error('Error fetching data:', error));
-        }
+                } else {
+                    console.error('Invalid data format:', data);
+                }
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    }
 
-        // Initial chart creation (you can change 'measles' to 'vaccination' if you want the initial chart to be vaccination)
-        updateChart();
+    // Initial chart creation
+    updateChart();
+
+    // Event handler for the onchange event of the chart selection
+    const chartSelection = document.getElementById('chart-selection');
+    if (chartSelection) {
+        chartSelection.onchange = function () {
+            updateChart();
+        };
+    } else {
+        console.error("Element with ID 'chart-selection' not found.");
+    }
+};
+
 </script>
-
 </body>
 
 </html>
