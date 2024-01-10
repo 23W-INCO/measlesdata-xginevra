@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.responses import FileResponse
 import sqlite3
 from fastapi.middleware.cors import CORSMiddleware
+from starlette.staticfiles import StaticFiles
 
 app = FastAPI()
 
@@ -21,7 +22,6 @@ def get_html():
 
 
 # Serve static files (HTML, JS, CSS)
-# app.mount("/", StaticFiles(directory="./", html=True), name="static")
 
 
 @app.get("/data")
@@ -108,3 +108,133 @@ async def get_data2():
 
         data_list.append(data_dict)
     return data_list
+
+
+@app.get("/citiesupto200000")
+async def get_data2():
+    conn = sqlite3.connect('data_for_web_application.db')
+    cursor = conn.cursor()
+
+    query = '''
+        SELECT *
+        FROM measles_data
+        WHERE vaccination_rate = 'N.A'
+        AND cases_100000 = 'N.A'
+        AND population <= '200000'
+    '''
+
+    cursor.execute(query)
+    data = cursor.fetchall()
+
+    # Close the cursor and connection
+    cursor.close()
+    conn.close()
+
+    data_list = []
+    for items in data:
+        data_dict = {}
+        data_dict["location"] = items[1]
+        data_dict["population"] = items[2]
+        data_dict["cases"] = items[3]
+
+        data_list.append(data_dict)
+    return data_list
+
+
+@app.get("/citiesmorethan200000")
+async def get_data2():
+    # do this for every visualisation that requires parts of the data
+    conn = sqlite3.connect('data_for_web_application.db')
+    cursor = conn.cursor()
+
+    query = '''
+        SELECT *
+        FROM measles_data
+        WHERE vaccination_rate = 'N.A'
+        AND cases_100000 = 'N.A'
+        AND population > '200000' 
+        AND population < '500000';
+    '''
+
+    cursor.execute(query)
+    data = cursor.fetchall()
+
+    # Close the cursor and connection
+    cursor.close()
+    conn.close()
+
+    data_list = []
+    for items in data:
+        data_dict = {}
+        data_dict["location"] = items[1]
+        data_dict["population"] = items[2]
+        data_dict["cases"] = items[3]
+
+        data_list.append(data_dict)
+    return data_list
+
+
+@app.get("/citiesmorethan500000")
+async def get_data2():
+    conn = sqlite3.connect('data_for_web_application.db')
+    cursor = conn.cursor()
+
+    query = '''
+        SELECT *
+        FROM measles_data
+        WHERE vaccination_rate = 'N.A'
+        AND cases_100000 = 'N.A'
+        AND population > '500000' 
+        AND population < '1000000';
+    '''
+
+    cursor.execute(query)
+    data = cursor.fetchall()
+
+    # Close the cursor and connection
+    cursor.close()
+    conn.close()
+
+    data_list = []
+    for items in data:
+        data_dict = {}
+        data_dict["location"] = items[1]
+        data_dict["population"] = items[2]
+        data_dict["cases"] = items[3]
+
+        data_list.append(data_dict)
+    return data_list
+
+
+@app.get("/citiesmorethan1000000")
+async def get_data2():
+    conn = sqlite3.connect('data_for_web_application.db')
+    cursor = conn.cursor()
+
+    query = '''
+        SELECT *
+        FROM measles_data
+        WHERE vaccination_rate = 'N.A'
+        AND cases_100000 = 'N.A'
+        AND population > '1000000';
+    '''
+
+    cursor.execute(query)
+    data = cursor.fetchall()
+
+    # Close the cursor and connection
+    cursor.close()
+    conn.close()
+
+    data_list = []
+    for items in data:
+        data_dict = {}
+        data_dict["location"] = items[1]
+        data_dict["population"] = items[2]
+        data_dict["cases"] = items[3]
+
+        data_list.append(data_dict)
+    return data_list
+
+
+app.mount("/", StaticFiles(directory="./", html=True), name="/")
