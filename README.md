@@ -2,7 +2,7 @@
 ## Population, measles cases, vaccination rates
 ### in the Federal States of Germany.
 find me here https://xginevra.github.io/measlesdata/ <br>
-and here http://measlesdata.ecriprojects.de <br>
+
 Also, i am working with FastAPI! <br>
 All the necessary files are stored in the /app folder and regularly updated along with the files in the root folder of the repository. 
 
@@ -25,7 +25,7 @@ All the necessary files are stored in the /app folder and regularly updated alon
 
 # TODOS:
 
--> TODO: - create a devcontainer as soon as the codespaces is reseted. 
+-> TODO: <br> - create a devcontainer as soon as the codespaces is reseted. 
 - add a function to main.py that automatically puts an uploaded compatible  json file into the database file to load data from there <br>
 ------
 - ### Who is your key user group? What are your users trying to achieve/understand/ inquire?
