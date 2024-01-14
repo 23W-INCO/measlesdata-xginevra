@@ -16,15 +16,17 @@ All the necessary files are stored in the /app folder and regularly updated alon
 - Dropdown menue to chose which bar chart you want to see for more "serious" data visualisation -> i found barcharts to be most informative and comparable with each other against other methods
 - clickable: Description for every Bundesland in the bar chart 
 - the application takes .json files as data
-- created a docker file and tried it out in codespaces (forgot to stop the codespace, now I can't access it anymore due to limitations of github) 
+- created a docker file and tried it out in codespaces (forgot to stop the codespace, now I can't access it anymore due to limitations of github)
+- added cities and their measles cases (look for cities with a limit of inhabitants) 
+- It works with an sqlite file, is being fed from a fhir-compliant json file. 
+
 
 -> i keep this section of the readme updated as further achievements come to my mind <br> <br>
 
 # TODOS:
 
--> TODO: - SQLite file to replace a database with json file to feed. <br>
-
- 
+-> TODO: - create a devcontainer as soon as the codespaces is reseted. 
+- add a function to main.py that automatically puts an uploaded compatible  json file into the database file to load data from there <br>
 ------
 - ### Who is your key user group? What are your users trying to achieve/understand/ inquire?
   The target group we want to reach are parents of disabled children who are, among other things, immunocompromised. They should be able to see how many of the children in the selected
