@@ -185,6 +185,8 @@
 
 
 
+
+
         // Draw text labels on the bars
         svg.selectAll('.bar-label') // Use a class for text elements
             .data(data)
@@ -220,7 +222,7 @@ function createScatterplot(containerId, data) {
         .append('g')
         .attr('transform', `translate(${margin.left},${margin.top})`);
 
-     // Set up the scales
+    // Set up the scales
     const xScale = d3.scaleLinear()
         .domain([d3.min(data, d => d.population), d3.max(data, d => d.population)])
         .range([0, width]);
@@ -229,54 +231,51 @@ function createScatterplot(containerId, data) {
         .domain([0, d3.max(data, d => d.cases)])
         .range([height, 0]);
 
-    // Set up a color scale based on cases
-    // const colorScale = d3.scaleSequential(d3.interpolateViridis)
-    //     .domain([0, d3.max(data, d => d.cases)]);
-    // dont need it anymore - but in case we want it back, here it is
-
-    // Set up a radius scale based on population
     const radiusScale = d3.scaleSqrt()
         .domain([0, d3.max(data, d => d.population)])
-        .range([2, 20]);  // Adjust the range of circle radius as needed
+        .range([2, 20]);
 
-        // Set up a rainbow color scale based on index
     const rainbowColorScale = d3.scaleSequential(d3.interpolateRainbow)
         .domain([0, data.length - 1]);
 
-    // Draw dots
-    svg.selectAll('circle')
+    // Create a force simulation
+    const simulation = d3.forceSimulation(data)
+        .force('x', d3.forceX(d => xScale(d.population)).strength(0.1))
+        .force('y', d3.forceY(d => yScale(d.cases)).strength(0.1))
+        .force('collide', d3.forceCollide(d => radiusScale(d.population) + 2).iterations(4));
+
+    // Draw circles
+    const circles = svg.selectAll('circle')
         .data(data)
         .enter()
         .append('circle')
-        .attr('cx', d => xScale(d.population))
-        .attr('cy', d => yScale(d.cases))
         .attr('r', d => radiusScale(d.population))
-        // .attr('fill', d => colorScale(d.cases))
         .attr('fill', (d, i) => rainbowColorScale(i))
-        .on('mouseover', function (d, i, nodes) {
-    // Position the tooltip based on the mouse coordinates
-    const tooltip = d3.select('#info1');
-    tooltip
-        .html(`
-            <strong>${d.location}</strong><br>
-            Population: ${d.population}<br>
-            Measles Cases: ${d.cases}
-        `);
+        .on('mouseover', function (d) {
+            const tooltip = d3.select('#info1');
+            tooltip.html(`
+                <strong>${d.location}</strong><br>
+                Population: ${d.population}<br>
+                Measles Cases: ${d.cases}
+            `);
 
-    // Highlight the dot on mouseover
-    d3.select(this)
-        .attr('stroke', 'black') // Border color
-        .attr('stroke-width', 2); // Border width
-})
-        .on('mouseout', function () {
-            // Remove the highlight on mouseout
             d3.select(this)
-                .attr('stroke', 'none'); // Remove border
+                .attr('stroke', 'black')
+                .attr('stroke-width', 2);
+        })
+        .on('mouseout', function () {
+            d3.select(this)
+                .attr('stroke', 'none');
 
-            // Hide tooltip on mouseout
             const tooltip = d3.select('#info1');
             tooltip.html('');
         });
+
+    // Update the positions of circles during each tick of the simulation
+    simulation.on('tick', () => {
+        circles.attr('cx', d => d.x)
+            .attr('cy', d => d.y);
+    });
 
 
     // Draw axes
