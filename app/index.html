@@ -7,7 +7,7 @@
     <title>Measles Data Visualization</title>
     <!-- Include D3.js -->
     <script src="https://d3js.org/d3.v5.min.js"></script>
-<!--    <link rel="stylesheet" href="../style.css">-->
+<!--    <link rel="stylesheet" href="../style.css"> SAVING FILES, putting styles into index.html-->
     <style>
         /* Apply flex layout to the body */
         body {
@@ -59,15 +59,15 @@
 
 <body>
     <div id="info" class="info" style="position: absolute; top: 25%; left: 40%;"></div>
-    <div id="info1" class="info1" style="position: absolute; top: 70%; left: 200px;"></div>
+    <div id="info1" class="info1" style="position: absolute; top:25%; left: 40%;"></div>
     <div class="container">
 
         <div class="left-section">
             <h2>Welcome to the Measles Evaluation Application</h2>
-            <p>For those who want to find a fitting Bundesland to their needs.<br>
+            <p>For those who want to find a fitting Bundesland or city in Germany to their needs.<br>
                 For parents of disabled/immunosuppressed children who want a safe home
                 for their kids. For those who must rely either on "herd-immunity" or
-                on a lower number of measles cases in their home-Bundesland.
+                on a lower number of measles cases in their homebase.
                 <br>
                 Please note that not all of the actual measles cases are reported to the government, hence it is
                 possible that there are slightly more cases than shown.</p>
@@ -89,7 +89,7 @@
         </div>
 
         <div class="right-section">
-            <h2>Heatmap of measles cases & vaccination rates</h2>
+            <h2>Overview of measles cases & vaccination rates</h2>
             <p>For an overview, click on your desired federal state.<br>
                 Please choose your desired layers by clicking on the "layers"-button.</p>
             <iframe src="bundeslender.html"></iframe>
@@ -145,31 +145,44 @@
         // Inside the section that draws the bars
         const rainbowColorScale = d3.scaleSequential(d3.interpolateRainbow)
         .domain([0, data.length - 1]);
-        svg.selectAll('rect')
-            .data(data)
-            .enter()
-            .append('rect')
-            .attr('x', d => xScale(d.location))
-            .attr('y', d => yScale(d[valueKey]) || 0) // Use 0 if yScale returns undefined or NaN
-            .attr('width', xScale.bandwidth())
-            .attr('height', d => height - (yScale(d[valueKey]) || 0)) // Use 0 if yScale returns undefined or NaN
-            .attr('fill', (d, i) => rainbowColorScale(i))
-            .on('mouseover', (data) => {
-            // Display information on hover
-            const tooltip = d3.select('#info');
-            tooltip.html(`
-                    <strong>${data.location}</strong><br>
-                    Population: ${data.population}<br>
-                    Vaccination Rate: ${data.vaccination_rate}%<br>
-                    Measles Cases: ${data.cases}<br>
-                    Cases per 100,000: ${data.cases_100000}
-            `);
-        })
-        .on('mouseout', () => {
-            // Hide tooltip on mouseout
-            const tooltip = d3.select('#info');
-            tooltip.html('');
-        });
+ svg.selectAll('rect')
+    .data(data)
+    .enter()
+    .append('rect')
+    .attr('x', d => xScale(d.location))
+    .attr('y', d => (yScale(d[valueKey]) || 0) - 10)
+    .attr('width', xScale.bandwidth())
+    .attr('height', d => height - (yScale(d[valueKey]) || 0))
+    .attr('fill', (d, i) => rainbowColorScale(i))
+    .attr('stroke', 'black')  // Set the default border color
+    .attr('stroke-width', 1)  // Set the default border width
+    .on('mouseover', function (data) {
+        // Highlight the bar on mouseover
+        d3.select(this)
+            .attr('stroke', 'black') // Border color on mouseover
+            .attr('stroke-width', 2); // Border width on mouseover
+
+        // Display information on hover
+        const tooltip = d3.select('#info');
+        tooltip.html(`
+            <strong>${data.location}</strong><br>
+            Population: ${data.population}<br>
+            Vaccination Rate: ${data.vaccination_rate}%<br>
+            Measles Cases: ${data.cases}<br>
+            Cases per 100,000: ${data.cases_100000}
+        `);
+    })
+    .on('mouseout', function () {
+        // Remove the highlight on mouseout
+        d3.select(this)
+            .attr('stroke', 'black') // Reset to default border color
+            .attr('stroke-width', 1); // Reset to default border width
+
+        // Hide tooltip on mouseout
+        const tooltip = d3.select('#info');
+        tooltip.html('');
+    });
+
 
 
         // Draw text labels on the bars
@@ -207,9 +220,9 @@ function createScatterplot(containerId, data) {
         .append('g')
         .attr('transform', `translate(${margin.left},${margin.top})`);
 
-    // Set up the scales
+     // Set up the scales
     const xScale = d3.scaleLinear()
-        .domain([0, d3.max(data, d => d.population)])
+        .domain([d3.min(data, d => d.population), d3.max(data, d => d.population)])
         .range([0, width]);
 
     const yScale = d3.scaleLinear()
@@ -219,6 +232,7 @@ function createScatterplot(containerId, data) {
     // Set up a color scale based on cases
     // const colorScale = d3.scaleSequential(d3.interpolateViridis)
     //     .domain([0, d3.max(data, d => d.cases)]);
+    // dont need it anymore - but in case we want it back, here it is
 
     // Set up a radius scale based on population
     const radiusScale = d3.scaleSqrt()
@@ -239,20 +253,21 @@ function createScatterplot(containerId, data) {
         .attr('r', d => radiusScale(d.population))
         // .attr('fill', d => colorScale(d.cases))
         .attr('fill', (d, i) => rainbowColorScale(i))
-        .on('mouseover', function (d) {
-            // Highlight the dot on mouseover
-            d3.select(this)
-                .attr('stroke', 'black') // Border color
-                .attr('stroke-width', 2); // Border width
+        .on('mouseover', function (d, i, nodes) {
+    // Position the tooltip based on the mouse coordinates
+    const tooltip = d3.select('#info1');
+    tooltip
+        .html(`
+            <strong>${d.location}</strong><br>
+            Population: ${d.population}<br>
+            Measles Cases: ${d.cases}
+        `);
 
-            // Display information on hover
-            const tooltip = d3.select('#info1');
-            tooltip.html(`
-                <strong>${d.location}</strong><br>
-                Population: ${d.population}<br>
-                Measles Cases: ${d.cases}
-            `);
-        })
+    // Highlight the dot on mouseover
+    d3.select(this)
+        .attr('stroke', 'black') // Border color
+        .attr('stroke-width', 2); // Border width
+})
         .on('mouseout', function () {
             // Remove the highlight on mouseout
             d3.select(this)
