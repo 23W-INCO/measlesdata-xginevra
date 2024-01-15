@@ -22,6 +22,7 @@ All the necessary files are stored in the /app folder and regularly updated alon
 - got rid of the empty space in the x-axis
 - updated the text of the application to introduce the cities option
 - i added the .json file which i fed into the database for a sample (for the sake of compability!)
+- i validated the .json file to be FHIR-compliant with [Simplifier.net](https://simplifier.net/validate) 
 
 
 -> i keep this section of the readme updated as further achievements come to my mind <br> <br>
