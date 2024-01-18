@@ -25,6 +25,7 @@
             padding: 20px; /* Add padding to the left section */
             background-color: #f1b2b5; /* altrosa background */
             width: 50%;
+            margin-right: 20px;
         }
 
         /* Style for the right section (iframe) */
