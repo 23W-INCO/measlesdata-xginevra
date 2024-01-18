@@ -4,6 +4,8 @@ import sqlite3
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.staticfiles import StaticFiles
 
+# use the following command: python3 -m uvicorn main:app --reload
+
 app = FastAPI()
 
 app.add_middleware(
