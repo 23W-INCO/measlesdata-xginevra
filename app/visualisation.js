@@ -10,7 +10,7 @@ window.onload = function () {
             return; // Exit the function if data is not an array
         }
 
-        const width = 700;
+        const width = 500;
         const height = 450;
         const margin = { top: 30, right: 20, bottom: 80, left: 60 };
 
@@ -111,7 +111,7 @@ window.onload = function () {
 
 // Function to create scatter plot
 function createScatterplot(containerId, data) {
-    const width = 700;
+    const width = 500;
     const height = 450;
     const margin = { top: 30, right: 20, bottom: 80, left: 60 };
 
