@@ -3,6 +3,7 @@ from fastapi.responses import FileResponse
 import sqlite3
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.staticfiles import StaticFiles
+from jsonindb import JsonInDatabaseTranformer
 
 app = FastAPI()
 
@@ -18,8 +19,9 @@ app.add_middleware(
 # Endpoint to serve the HTML file
 @app.get("/")
 def get_html():
+    json_in_db = JsonInDatabaseTranformer()
+    json_in_db.push_json_data_in_db()
     return FileResponse("./index.html")
-
 
 # Serve static files (HTML, JS, CSS)
 
