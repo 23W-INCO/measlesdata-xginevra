@@ -3,10 +3,9 @@
 ### in the Federal States of Germany.
 
 I am working with FastAPI! <br>
-All the necessary files are stored in the /app folder and regularly updated along with the files in the root folder of the repository. 
+All the necessary files are stored in the /app folder which is the working directory.
 
---work in progress--
-
+---------------------
 
 ### What i achieved so far:
 
@@ -22,16 +21,12 @@ All the necessary files are stored in the /app folder and regularly updated alon
 - got rid of the empty space in the x-axis
 - updated the text of the application to introduce the cities option
 - i added the .json file which i fed into the database for a sample (for the sake of compability!)
-- i validated the .json file to be FHIR-compliant with [Simplifier.net](https://simplifier.net/validate) 
-
+- i validated the .json file to be FHIR-compliant with [Simplifier.net](https://simplifier.net/validate)
+- i managed to automate the feeding of the .json file into the visualisation (left side, right side remains static because it is beautiful and informative as it is!) - an exchange is easily possible by replacing the .json file 
 
 -> i keep this section of the readme updated as further achievements come to my mind <br> <br>
 
-# TODOS:
 
--> TODO: <br> 
-- create a devcontainer as soon as the codespaces is reseted. 
-- add a function to main.py that automatically puts an uploaded compatible json file into the database file to load data from there <br>
 ------
 - ### Who is your key user group? What are your users trying to achieve/understand/ inquire?
   The target group we want to reach are parents of disabled children who are, among other things, immunocompromised. They should be able to see how many of the children in the selected
