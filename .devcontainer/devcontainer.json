@@ -9,5 +9,5 @@
         "terminal.integrated.shell.linux": "/bin/bash"
     },
     "extensions": ["ms-python.python"],
-    "postStartCommand": "python3 -m uvicorn main:app --reload"
+    "postStartCommand": "cd app && python3 -m uvicorn main:app --reload"
 }
