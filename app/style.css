@@ -6,17 +6,21 @@
             margin: 0; /* Remove default margin to avoid extra space around the body */
             font-family: Arial, sans-serif;
         }
+        #info, #info1 {
+            position: absolute;
+            background-color: white; /* Set the background color */
+            border: 1px solid #ddd; /* Add a border */
+            padding: 10px; /* Add some padding */
+            /*z-index: 1;*/
+        }
 
-        /*#info {*/
-        /*    z-index: 999;*/
-        /*    background-color: #f1b2b5;*/
-        /*}*/
 
         /* Style for the container */
         .container {
             display: flex;
             flex-direction: row; /* Stack children horizontally */
-            /*margin-right: 20px*/
+            align-content: center;
+
         }
 
         /* Style for the left section (bar charts) */
@@ -25,7 +29,8 @@
             padding: 20px; /* Add padding to the left section */
             background-color: #f1b2b5; /* altrosa background */
             width: 100%;
-            /*margin-right: 20px;*/
+            align-content: center;
+            text-align: center;
         }
 
         /*!* Style for the right section (iframe) *!*/

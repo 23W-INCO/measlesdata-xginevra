@@ -10,3 +10,5 @@ chardet~=5.2.0
 aiosqlite
 databases[sqlite] == 0.4.3
 sqlalchemy
+python-multipart
+multipart

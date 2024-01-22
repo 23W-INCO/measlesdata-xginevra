@@ -23,7 +23,6 @@ class JsonInDatabaseTranformer:
             );
         ''')
 
-
     def insert_data(self, cursor, location, data):
         location = location.split("/")[1]
         population = int(data['Population'])
@@ -40,11 +39,34 @@ class JsonInDatabaseTranformer:
             INSERT INTO measles_data (location, population, cases, vaccination_rate, cases_100000)
             VALUES (?, ?, ?, ?, ?);
         ''', (location, population, cases, vacation_r, cases_100000))
-        # Add more parameters and placeholders as needed
 
+    def push_json_data_in_db(self, json_path):
+        database_file = 'data_for_web_application.db'
 
-    def push_json_data_in_db(self):
-        # Replace 'your_database_file.db' with your desired database file name
+        # Connect to the SQLite database
+        connection = sqlite3.connect(database_file)
+        cursor = connection.cursor()
+
+        # # Create the table if it doesn't exist, not needed
+        # self.create_table(cursor)
+
+        # Insert data into the table
+        # Read data from the JSON file
+        filename = pathlib.Path(json_path)
+        pat = Bundle.parse_file(filename)
+        for obs in pat.entry:
+            location = obs.resource.subject.reference
+            data_dict = {}
+            for compons in obs.resource.component:
+                data_dict[compons.code.text] = compons.valueQuantity.value
+
+            self.insert_data(cursor, location, data_dict)
+
+        # Commit the changes and close the connection
+        connection.commit()
+        connection.close()
+
+    def push_json_data_in_fresh_db(self, json_path):
         database_file = 'data_for_web_application.db'
 
         # Connect to the SQLite database
@@ -56,7 +78,7 @@ class JsonInDatabaseTranformer:
 
         # Insert data into the table
         # Read data from the JSON file
-        filename = pathlib.Path("measles_statistics_fhir.json")
+        filename = pathlib.Path(json_path)
         pat = Bundle.parse_file(filename)
         for obs in pat.entry:
             location = obs.resource.subject.reference

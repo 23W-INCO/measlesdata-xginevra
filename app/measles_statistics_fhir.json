@@ -1658,7 +1658,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/berlin"
+          "reference": "Location/berlin-stadt"
         },
         "component": [
           {
@@ -2042,7 +2042,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/bremen"
+          "reference": "Location/bremen-stadt"
         },
         "component": [
           {
@@ -3258,7 +3258,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/hamburg"
+          "reference": "Location/hamburg-stadt"
         },
         "component": [
           {
