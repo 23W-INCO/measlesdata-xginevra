@@ -5,12 +5,21 @@
 I am working with FastAPI! <br>
 All the necessary files are stored in the /app folder which is the working directory.
 
+## TODO:
+- Leave out the chloropleth map because it isn't made with d3
+- Scale the dots of the cities visualisation by the relation of measles cases / population
+- either color per Bundesland or no color
+- make the tooltip appear on the mouse location
+
 ---------------------
 
 ### What i achieved so far:
 
-- A web application which provides two "sides" -> right for the map visualization (static!) , left for the clickable bar chart (dynamic!)
-- Heatmap of Germany, clickable, information displayed after clicking and in beautiful coloration (layers) 
+- A web application which provides two "sides" -> right for the map visualization (static!) , left for the clickable bar chart (dynamic!) <br>
+but i needed to leave the map out, so it is just a chart visualisation (it was really beautiful, though)
+
+- Heatmap of Germany, clickable, information displayed after clicking and in beautiful coloration (layers) <br>
+  but i needed to leave it out because it would do more harm then benefit 
 - Dropdown menue to chose which bar chart you want to see for more "serious" data visualisation -> i found barcharts to be most informative and comparable with each other against other methods
 - tooltip: Description for every Bundesland in the bar chart
 - but also the same for the cities section and the circles - i found them very appealing and nice 
