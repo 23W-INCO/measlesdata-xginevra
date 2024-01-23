@@ -18,7 +18,7 @@ but i needed to leave the map out, so it is just a chart visualisation (it was r
   but i needed to leave it out because it would do more harm then benefit 
 - Dropdown menue to chose which bar chart you want to see for more "serious" data visualisation -> i found barcharts to be most informative and comparable with each other against other methods
 - tooltip: Description for every Bundesland in the bar chart but also the same for the cities section and the circles - i found them very appealing and nice 
-- created a docker file and tried it out in codespaces (forgot to stop the codespace, now I can't access it anymore due to limitations of github)
+- created a docker file and tried it out in codespaces (forgot to stop the codespace, now I can't access it anymore due to limitations of github - again!)
 - added cities and their measles cases (look for cities with a limit of inhabitants) 
 - It works with an sqlite file, is being fed from a fhir-compliant json file (which i added to the repo lately!).
 - the circles visualisation is now animated :)
