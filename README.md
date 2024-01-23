@@ -4,7 +4,7 @@
 
 ---------------------
 
-# important: - To update the application and upload a new file to the application, please see the route <code> /docs </code>, click on "try it out" and upload the desired file. reload to the standard route <code> "/" </code> and see how your new file is being embedded in the visualisation.
+# important: - To update the application and upload a new file to the application, please see the route <code> /docs </code> - linked in the application itself, click on "try it out" and upload the desired file. reload to the standard route <code> "/" </code> and see how your new file is being embedded in the visualisation.
 
 Only stopping uvicorn by clicking ctrl+c and restarting it resets the data to the "standard" data. 
 
