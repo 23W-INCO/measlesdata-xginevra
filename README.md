@@ -69,7 +69,7 @@ much friendlier as they actually do now.
 
 ---------
 
-- ### Achievements during the project time
+- ### Achievements during the project time and a brief description for evaluation
 
 - First, i wanted to make a map with Folium where you can click on the desired federal state for an overview and to get familiar with the application, before the user would change to the other visualisations. But the map wasn't made with d3.js, so i had to drop this idea. Furthermore, the bar charts are giving the same information but built with d3 and this is what the requirement says.
 - I decided on bar charts to visualize the relations of the measles cases with the population - i've had the idea from the beginning. Later, i added the "per 100.000" value which represents the incidence of the federal state. I used a dropdown menue for the user to choose what they want to see - measles cases per Bundesland or the vaccination rate of each.
@@ -78,4 +78,5 @@ much friendlier as they actually do now.
 - After successfully implementing a .db file for the backend, I managed to automate the process of putting the fhir-compliant .json file into the .db file which feeds the visualisation. After freshly starting the application, it automatically re-fills the database with the original file i provide with the application.
 - To update the application and upload a new file additionally, please see the route <code> /docs </code>, click on "try it out" and upload the desired file. go back to the standard route <code> "/" </code> and see how your new file is being embedded in the visualisation.
 - I added tooltips via the .on(mouseover) funtion; they show the underlying data for each city and bundesland and highlight the selected section of the visualisation, to make it more tangible (we want to make it easy to use for everyone)
+- The upload functionality accepts only an appropriate .json file, as provided as sample.
 - 
