@@ -31,15 +31,26 @@ but i needed to leave the map out, so it is just a chart visualisation (it was r
 
 -> read further to see the latest changes and achievements.
 
+--------------
+
+### But: how did i come to this topic? 
+Since we have been talking about pursuing a project in the lectures, firstly i thought of COVID-19 and its impacts on the society. But then, somewhat everyone wanted to do something related to covid. Then, i thought about my daughter and that it was mandatory for her to get vaccinated against measles. I started exploring the different vaccination rates against measles in Germany and its federal states; i was surprised that there was such a difference between some states although it was obligatory to get vaccinated before entering Kindergarten or school. I continued examining the actual measles cases in the following years - and again, i was surprised that the states with the lowest vaccination rate also had some very low numbers on measles cases. I started wondering what i could do with these data. Soon the idea came to my mind, what if I couldn't vaccinate my daughter because of some disability or something? <br> From that point of time on, my idea was set. I want to make an approach on helping families with children who can't be vaccinated against measles - to find a home that is safe for their child. 
+
+---------
+
+### Why should it be safe?
+
+An infection with measles can be mild, but can also be fatal. Especially for children whose immune system is weakened due to illness. In most cases, these children cannot be vaccinated against measles. This would make an infection a worst-case scenario. This is why families should look for a location where either the measles cases are on a lower number, or the vaccination rate high in order to ensure herd-immunity - or both, low cases AND high vaccination rate.
+
 ------
-- ### Who is your key user group? What are your users trying to achieve/understand/ inquire?
+- ## Who is your key user group? What are your users trying to achieve/understand/ inquire?
   The target group we want to reach are parents of disabled children who are, among other things, immunocompromised. They should be able to see how many of the children in the selected federal state are vaccinated and how many of them have actually been sick from measles - also in selected cities. It helps deciding whether families should try vaccinating their child or not despite several dangers they are exposed to; also it helps finding a fitting federal state with the so called "herd immunity" - so that the children who cannot be vaccinated for several medical reasons, find their safe home.
 According to the user group, we want to see where it would be safest to live
   for parents with a disabled/immunocompromised child.
 
 -----
 
-- ### How does the type of visualization chosen help achieve this task effectively and efficiently?
+- ## How does the type of visualization chosen help achieve this task effectively and efficiently?
 The selected bar charts make it possible to directly compare every single federal state with<br>
 the other in terms of vaccination rates and measles cases.<br>
 The city data visualisation bubbles give information about every selected city, ordered by <br>
@@ -53,7 +64,7 @@ and to compare the cities with each other.
 
 ------
 
-- ### How do the other features of your application further help your users achieve this task?
+- ## How do the other features of your application further help your users achieve this task?
 It is easy to get to see the desired information by simply clicking on the drop-down menue and does not need any further explanation.
 <br> even writing skills aren't required. <br>
 So, information is transmitted more easily for any social class. <br>
@@ -78,4 +89,3 @@ much friendlier as they actually do now.
 - To update the application and upload a new file additionally, please see the route <code> /docs </code>, click on "try it out" and upload the desired file. go back to the standard route <code> "/" </code> and see how your new file is being embedded in the visualisation.
 - I added tooltips via the .on(mouseover) funtion; they show the underlying data for each city and bundesland and highlight the selected section of the visualisation, to make it more tangible (we want to make it easy to use for everyone)
 - The upload functionality accepts only an appropriate .json file, as provided as sample.
-- 
