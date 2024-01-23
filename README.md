@@ -26,7 +26,7 @@ but i needed to leave the map out, so it is just a chart visualisation (it was r
 - updated the text of the application to introduce the cities option
 - i added the .json file which i fed into the database for a sample (for the sake of compability!)
 - i validated the .json file to be FHIR-compliant with [Simplifier.net](https://simplifier.net/validate)
-- i managed to automate the feeding of the .json file into the visualisation - an exchange is easily possible by replacing the .json file
+- i managed to automate the feeding of the .json file into the visualisation at startup
 - either replacing the .json file (this would be a final decision, also you loose "my" data) or uploading on the /docs route (this is temporary, you just add your data to mine) makes it possible to change data. 
 
 -> read further to see the latest changes and achievements.
