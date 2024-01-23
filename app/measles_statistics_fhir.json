@@ -26,7 +26,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/baden-wuerttemberg"
+          "reference": "Location/Baden-Wuerttemberg"
         },
         "component": [
           {
@@ -124,7 +124,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/bayern"
+          "reference": "Location/Bayern"
         },
         "component": [
           {
@@ -222,7 +222,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/berlin"
+          "reference": "Location/Berlin"
         },
         "component": [
           {
@@ -320,7 +320,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/brandenburg"
+          "reference": "Location/Brandenburg"
         },
         "component": [
           {
@@ -418,7 +418,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/bremen"
+          "reference": "Location/Bremen"
         },
         "component": [
           {
@@ -516,7 +516,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/hamburg"
+          "reference": "Location/Hamburg"
         },
         "component": [
           {
@@ -712,7 +712,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/mecklenburg-vorpommern"
+          "reference": "Location/Mecklenburg-Vorpommern"
         },
         "component": [
           {
@@ -810,7 +810,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/niedersachsen"
+          "reference": "Location/Niedersachsen"
         },
         "component": [
           {
@@ -908,7 +908,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/nordrhein-westfalen"
+          "reference": "Location/Nordrhein-Westfalen"
         },
         "component": [
           {
@@ -1006,7 +1006,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/rheinland-pfalz"
+          "reference": "Location/Rheinland-Pfalz"
         },
         "component": [
           {
@@ -1104,7 +1104,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/saarland"
+          "reference": "Location/Saarland"
         },
         "component": [
           {
@@ -1202,7 +1202,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/sachsen"
+          "reference": "Location/Sachsen"
         },
         "component": [
           {
@@ -1300,7 +1300,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/sachsen-anhalt"
+          "reference": "Location/Sachsen-Anhalt"
         },
         "component": [
           {
@@ -1398,7 +1398,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/schleswig-holstein"
+          "reference": "Location/Schleswig-Holstein"
         },
         "component": [
           {
@@ -1496,7 +1496,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/thueringen"
+          "reference": "Location/Thueringen"
         },
         "component": [
           {
@@ -1594,7 +1594,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/augsburg"
+          "reference": "Location/Augsburg"
         },
         "component": [
           {
@@ -1658,7 +1658,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/berlin-stadt"
+          "reference": "Location/Berlin-Stadt"
         },
         "component": [
           {
@@ -1722,7 +1722,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/bielefeld"
+          "reference": "Location/Bielefeld"
         },
         "component": [
           {
@@ -1786,7 +1786,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/bochum"
+          "reference": "Location/Bochum"
         },
         "component": [
           {
@@ -1850,7 +1850,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/bonn"
+          "reference": "Location/Bonn"
         },
         "component": [
           {
@@ -1914,7 +1914,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/bottrop"
+          "reference": "Location/Bottrop"
         },
         "component": [
           {
@@ -1978,7 +1978,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/braunschweig"
+          "reference": "Location/Braunschweig"
         },
         "component": [
           {
@@ -2042,7 +2042,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/bremen-stadt"
+          "reference": "Location/Bremen-Stadt"
         },
         "component": [
           {
@@ -2106,7 +2106,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/bremerhaven"
+          "reference": "Location/Bremerhaven"
         },
         "component": [
           {
@@ -2170,7 +2170,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/chemnitz"
+          "reference": "Location/Chemnitz"
         },
         "component": [
           {
@@ -2234,7 +2234,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/duesseldorf"
+          "reference": "Location/Duesseldorf"
         },
         "component": [
           {
@@ -2298,7 +2298,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/darmstadt"
+          "reference": "Location/Darmstadt"
         },
         "component": [
           {
@@ -2362,7 +2362,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/dortmund"
+          "reference": "Location/Dortmund"
         },
         "component": [
           {
@@ -2426,7 +2426,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/dresden"
+          "reference": "Location/Dresden"
         },
         "component": [
           {
@@ -2490,7 +2490,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/duisburg"
+          "reference": "Location/Duisburg"
         },
         "component": [
           {
@@ -2554,7 +2554,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/erfurt"
+          "reference": "Location/Erfurt"
         },
         "component": [
           {
@@ -2618,7 +2618,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/erlangen"
+          "reference": "Location/Erlangen"
         },
         "component": [
           {
@@ -2682,7 +2682,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/essen"
+          "reference": "Location/Essen"
         },
         "component": [
           {
@@ -2746,7 +2746,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/fuerth"
+          "reference": "Location/Fuerth"
         },
         "component": [
           {
@@ -2810,7 +2810,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/frankfurtammain"
+          "reference": "Location/Frankfurt am Main"
         },
         "component": [
           {
@@ -2874,7 +2874,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/freiburgi.breisgau"
+          "reference": "Location/Freiburg i. Breisgau"
         },
         "component": [
           {
@@ -2938,7 +2938,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/goettingen"
+          "reference": "Location/Goettingen"
         },
         "component": [
           {
@@ -3002,7 +3002,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/guetersloh"
+          "reference": "Location/Guetersloh"
         },
         "component": [
           {
@@ -3066,7 +3066,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/gelsenkirchen"
+          "reference": "Location/Gelsenkirchen"
         },
         "component": [
           {
@@ -3130,7 +3130,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/hagen"
+          "reference": "Location/Hagen"
         },
         "component": [
           {
@@ -3194,7 +3194,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/halle"
+          "reference": "Location/Halle"
         },
         "component": [
           {
@@ -3258,7 +3258,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/hamburg-stadt"
+          "reference": "Location/Hamburg-Stadt"
         },
         "component": [
           {
@@ -3322,7 +3322,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/hamm"
+          "reference": "Location/Hamm"
         },
         "component": [
           {
@@ -3386,7 +3386,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/hannover"
+          "reference": "Location/Hannover"
         },
         "component": [
           {
@@ -3450,7 +3450,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/heidelberg"
+          "reference": "Location/Heidelberg"
         },
         "component": [
           {
@@ -3514,7 +3514,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/heilbronn"
+          "reference": "Location/Heilbronn"
         },
         "component": [
           {
@@ -3578,7 +3578,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/herne"
+          "reference": "Location/Herne"
         },
         "component": [
           {
@@ -3642,7 +3642,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/hildesheim"
+          "reference": "Location/Hildesheim"
         },
         "component": [
           {
@@ -3706,7 +3706,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/ingolstadt"
+          "reference": "Location/Ingolstadt"
         },
         "component": [
           {
@@ -3770,7 +3770,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/jena"
+          "reference": "Location/Jena"
         },
         "component": [
           {
@@ -3834,7 +3834,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/koeln"
+          "reference": "Location/Koeln"
         },
         "component": [
           {
@@ -3898,7 +3898,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/kaiserslautern"
+          "reference": "Location/Kaiserslautern"
         },
         "component": [
           {
@@ -3962,7 +3962,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/karlsruhe"
+          "reference": "Location/Karlsruhe"
         },
         "component": [
           {
@@ -4026,7 +4026,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/kassel"
+          "reference": "Location/Kassel"
         },
         "component": [
           {
@@ -4090,7 +4090,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/kiel"
+          "reference": "Location/Kiel"
         },
         "component": [
           {
@@ -4154,7 +4154,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/koblenz"
+          "reference": "Location/Koblenz"
         },
         "component": [
           {
@@ -4218,7 +4218,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/krefeld"
+          "reference": "Location/Krefeld"
         },
         "component": [
           {
@@ -4282,7 +4282,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/luebeck"
+          "reference": "Location/Luebeck"
         },
         "component": [
           {
@@ -4346,7 +4346,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/leipzig"
+          "reference": "Location/Leipzig"
         },
         "component": [
           {
@@ -4410,7 +4410,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/leverkusen"
+          "reference": "Location/Leverkusen"
         },
         "component": [
           {
@@ -4474,7 +4474,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/ludwigshafen"
+          "reference": "Location/Ludwigshafen"
         },
         "component": [
           {
@@ -4538,7 +4538,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/moenchengladbach"
+          "reference": "Location/Moenchengladbach"
         },
         "component": [
           {
@@ -4602,7 +4602,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/muelheima.d.ruhr"
+          "reference": "Location/Muelheim a. d. Ruhr"
         },
         "component": [
           {
@@ -4666,7 +4666,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/muenchen"
+          "reference": "Location/Muenchen"
         },
         "component": [
           {
@@ -4730,7 +4730,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/muenster"
+          "reference": "Location/Muenster"
         },
         "component": [
           {
@@ -4794,7 +4794,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/magdeburg"
+          "reference": "Location/Magdeburg"
         },
         "component": [
           {
@@ -4858,7 +4858,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/mainz"
+          "reference": "Location/Mainz"
         },
         "component": [
           {
@@ -4922,7 +4922,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/mannheim"
+          "reference": "Location/Mannheim"
         },
         "component": [
           {
@@ -4986,7 +4986,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/nuernberg"
+          "reference": "Location/Muernberg"
         },
         "component": [
           {
@@ -5050,7 +5050,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/oberhausen"
+          "reference": "Location/Oberhausen"
         },
         "component": [
           {
@@ -5114,7 +5114,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/offenbach"
+          "reference": "Location/Offenbach"
         },
         "component": [
           {
@@ -5178,7 +5178,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/oldenburg"
+          "reference": "Location/Oldenburg"
         },
         "component": [
           {
@@ -5242,7 +5242,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/osnabrueck"
+          "reference": "Location/Osnabrueck"
         },
         "component": [
           {
@@ -5306,7 +5306,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/paderborn"
+          "reference": "Location/Paderborn"
         },
         "component": [
           {
@@ -5370,7 +5370,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/pforzheim"
+          "reference": "Location/Pforzheim"
         },
         "component": [
           {
@@ -5434,7 +5434,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/potsdam"
+          "reference": "Location/Potsdam"
         },
         "component": [
           {
@@ -5498,7 +5498,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/recklinghausen"
+          "reference": "Location/Recklinghausen"
         },
         "component": [
           {
@@ -5562,7 +5562,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/regensburg"
+          "reference": "Location/Regensburg"
         },
         "component": [
           {
@@ -5626,7 +5626,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/remscheid"
+          "reference": "Location/Remscheid"
         },
         "component": [
           {
@@ -5690,7 +5690,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/reutlingen"
+          "reference": "Location/Reutlingen"
         },
         "component": [
           {
@@ -5754,7 +5754,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/rhein-kreisneuss"
+          "reference": "Location/Rhein-Kreis Neuss"
         },
         "component": [
           {
@@ -5818,7 +5818,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/rostock"
+          "reference": "Location/Rostock"
         },
         "component": [
           {
@@ -5882,7 +5882,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/saarbruecken"
+          "reference": "Location/Saarbruecken"
         },
         "component": [
           {
@@ -5946,7 +5946,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/salzgitter"
+          "reference": "Location/Salzgitter"
         },
         "component": [
           {
@@ -6010,7 +6010,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/solingen"
+          "reference": "Location/Solingen"
         },
         "component": [
           {
@@ -6074,7 +6074,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/stuttgart"
+          "reference": "Location/Stuttgart"
         },
         "component": [
           {
@@ -6138,7 +6138,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/trier"
+          "reference": "Location/Trier"
         },
         "component": [
           {
@@ -6202,7 +6202,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/ulm"
+          "reference": "Location/Ulm"
         },
         "component": [
           {
@@ -6266,7 +6266,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/wuerzburg"
+          "reference": "Location/Wuerzburg"
         },
         "component": [
           {
@@ -6330,7 +6330,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/wiesbaden"
+          "reference": "Location/Wiesbaden"
         },
         "component": [
           {
@@ -6394,7 +6394,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/wolfsburg"
+          "reference": "Location/Wolfsburg"
         },
         "component": [
           {
@@ -6458,7 +6458,7 @@
           "text": "Measles Statistics"
         },
         "subject": {
-          "reference": "Location/wuppertal"
+          "reference": "Location/Wuppertal"
         },
         "component": [
           {
