@@ -54,10 +54,10 @@ async def get_data1():
         SELECT *
         FROM measles_data
         WHERE location IN (
-            'baden-wuerttemberg', 'bayern', 'berlin', 'brandenburg', 'bremen',
-            'hamburg', 'hessen', 'mecklenburg-vorpommern', 'niedersachsen',
-            'nordrhein-westfalen', 'rheinland-pfalz', 'saarland', 'sachsen',
-            'sachsen-anhalt', 'schleswig-holstein', 'thueringen'
+            'Baden-Wuerttemberg', 'Bayern', 'Berlin', 'Brandenburg', 'Bremen',
+            'Hamburg', 'Hessen', 'Mecklenburg-Vorpommern', 'Niedersachsen',
+            'Nordrhein-Westfalen', 'Rheinland-Pfalz', 'Saarland', 'Sachsen',
+            'Sachsen-Anhalt', 'Schleswig-Holstein', 'Thueringen'
         )
         AND population <> 'N.A'
         AND cases <> 'N.A'
@@ -95,10 +95,10 @@ async def get_data2():
         SELECT *
         FROM measles_data
         WHERE location NOT IN (
-            'baden-wuerttemberg', 'bayern', 'berlin', 'brandenburg', 'bremen',
-            'hamburg', 'hessen', 'mecklenburg-vorpommern', 'niedersachsen',
-            'nordrhein-westfalen', 'rheinland-pfalz', 'saarland', 'sachsen',
-            'sachsen-anhalt', 'schleswig-holstein', 'thueringen'
+            'Baden-Wuerttemberg', 'Bayern', 'Berlin', 'Brandenburg', 'Bremen',
+            'Hamburg', 'Hessen', 'Mecklenburg-Vorpommern', 'Niedersachsen',
+            'Nordrhein-Westfalen', 'Rheinland-Pfalz', 'Saarland', 'Sachsen',
+            'Sachsen-Anhalt', 'Schleswig-Holstein', 'Thueringen'
         )
     '''
 
@@ -129,10 +129,10 @@ async def get_data2():
         SELECT *
         FROM measles_data
         WHERE location NOT IN (
-            'baden-wuerttemberg', 'bayern', 'berlin', 'brandenburg', 'bremen',
-            'hamburg', 'hessen', 'mecklenburg-vorpommern', 'niedersachsen',
-            'nordrhein-westfalen', 'rheinland-pfalz', 'saarland', 'sachsen',
-            'sachsen-anhalt', 'schleswig-holstein', 'thueringen'
+            'Baden-Wuerttemberg', 'Bayern', 'Berlin', 'Brandenburg', 'Bremen',
+            'Hamburg', 'Hessen', 'Mecklenburg-Vorpommern', 'Niedersachsen',
+            'Nordrhein-Westfalen', 'Rheinland-Pfalz', 'Saarland', 'Sachsen',
+            'Sachsen-Anhalt', 'Schleswig-Holstein', 'Thueringen'
         ) AND population <= '200000'
     '''
 
@@ -164,11 +164,11 @@ async def get_data2():
             SELECT *
             FROM measles_data
             WHERE location NOT IN (
-                'baden-wuerttemberg', 'bayern', 'berlin', 'brandenburg', 'bremen',
-                'hamburg', 'hessen', 'mecklenburg-vorpommern', 'niedersachsen',
-                'nordrhein-westfalen', 'rheinland-pfalz', 'saarland', 'sachsen',
-                'sachsen-anhalt', 'schleswig-holstein', 'thueringen'
-            ) AND population > '200000' 
+            'Baden-Wuerttemberg', 'Bayern', 'Berlin', 'Brandenburg', 'Bremen',
+            'Hamburg', 'Hessen', 'Mecklenburg-Vorpommern', 'Niedersachsen',
+            'Nordrhein-Westfalen', 'Rheinland-Pfalz', 'Saarland', 'Sachsen',
+            'Sachsen-Anhalt', 'Schleswig-Holstein', 'Thueringen'
+        ) AND population > '200000' 
               AND population < '500000';
             '''
 
@@ -199,11 +199,11 @@ async def get_data2():
             SELECT *
             FROM measles_data
             WHERE location NOT IN (
-                'baden-wuerttemberg', 'bayern', 'berlin', 'brandenburg', 'bremen',
-                'hamburg', 'hessen', 'mecklenburg-vorpommern', 'niedersachsen',
-                'nordrhein-westfalen', 'rheinland-pfalz', 'saarland', 'sachsen',
-                'sachsen-anhalt', 'schleswig-holstein', 'thueringen'
-            ) AND population > '500000' 
+            'Baden-Wuerttemberg', 'Bayern', 'Berlin', 'Brandenburg', 'Bremen',
+            'Hamburg', 'Hessen', 'Mecklenburg-Vorpommern', 'Niedersachsen',
+            'Nordrhein-Westfalen', 'Rheinland-Pfalz', 'Saarland', 'Sachsen',
+            'Sachsen-Anhalt', 'Schleswig-Holstein', 'Thueringen'
+        ) AND population > '500000' 
               AND population < '1000000';
             '''
 
@@ -257,11 +257,11 @@ async def get_data2():
             SELECT *
             FROM measles_data
             WHERE location NOT IN (
-                'baden-wuerttemberg', 'bayern', 'berlin', 'brandenburg', 'bremen',
-                'hamburg', 'hessen', 'mecklenburg-vorpommern', 'niedersachsen',
-                'nordrhein-westfalen', 'rheinland-pfalz', 'saarland', 'sachsen',
-                'sachsen-anhalt', 'schleswig-holstein', 'thueringen'
-            ) AND population > '1000000';
+            'Baden-Wuerttemberg', 'Bayern', 'Berlin', 'Brandenburg', 'Bremen',
+            'Hamburg', 'Hessen', 'Mecklenburg-Vorpommern', 'Niedersachsen',
+            'Nordrhein-Westfalen', 'Rheinland-Pfalz', 'Saarland', 'Sachsen',
+            'Sachsen-Anhalt', 'Schleswig-Holstein', 'Thueringen'
+        ) AND population > '1000000';
             '''
 
     cursor.execute(query)
