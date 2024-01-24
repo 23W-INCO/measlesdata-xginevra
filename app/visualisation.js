@@ -179,6 +179,10 @@ window.onload = function () {
             .attr("transform", "rotate(-45)")
             .style("text-anchor", "end");
 
+        // hide the axis
+        // svg.selectAll('g.axis path')
+        // .style('display', 'none');
+
         svg.append('g')
             .call(d3.axisLeft(yScale));
 
