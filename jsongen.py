@@ -4,6 +4,9 @@ import chardet
 from fhir.resources.researchstudy import A
 
 
+# This is the file I used to create a json out of the .csv file, though it was not FHIR compatible so far;
+# to make it FHIR compatible - I used the create_fhir_json.py.
+
 # Function to detect the encoding of a file
 def detect_encoding(file_path):
     with open(file_path, 'rb') as f:
