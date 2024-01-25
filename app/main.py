@@ -28,9 +28,6 @@ def get_html():
     return FileResponse("./index.html")
 
 
-# Serve static files (HTML, JS, CSS)
-
-
 @app.get("/data")
 async def get_data():
     # do this for every visualisation that requires parts of the data
@@ -273,7 +270,7 @@ async def upload_json(file: UploadFile = File(...)):
             json_file_name = "new_measles_data.json"
             with open(json_file_name, "w") as json_file:
                 json_file.write(decoded_json)
-            # You can perform additional validation or processing here if needed
+
             json_in_db = JsonInDatabaseTranformer()
             json_in_db.push_json_data_in_db(json_file_name)
             return {"status": "File is correct", "json_content": json_content.decode("utf-8")}
