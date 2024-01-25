@@ -81,7 +81,6 @@ Installation and Setup Instructions
 - 
 
 ### Running the application in a devcontainer via GitHub Codespaces.
------
 
 1. <b> Open in GitHub Codespaces </b>
 - Go to the GitHub repository: [https://github.com/xginevra/measlesdata](https://github.com/xginevra/measlesdata).
