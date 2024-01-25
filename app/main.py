@@ -5,6 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from starlette.staticfiles import StaticFiles
 from jsonindb import JsonInDatabaseTranformer
 
+
 # use the following command: python3 -m uvicorn main:app --reload
 
 app = FastAPI()
@@ -59,10 +60,11 @@ async def get_data1():
             'Nordrhein-Westfalen', 'Rheinland-Pfalz', 'Saarland', 'Sachsen',
             'Sachsen-Anhalt', 'Schleswig-Holstein', 'Thueringen'
         )
-        AND population <> 'N.A'
+        OR ( population <> 'N.A'
         AND cases <> 'N.A'
         AND vaccination_rate <> 'N.A'
-        AND cases_100000 <> 'N.A';
+        AND cases_100000 <> 'N.A');
+        
     '''
 
     cursor.execute(query)
@@ -225,29 +227,6 @@ async def get_data2():
     return data_list
 
 
-@app.post("/uploadjson/")
-async def upload_json(file: UploadFile = File(...)):
-    # Check if the file extension is JSON
-    if file.filename.endswith(".json"):
-        try:
-            # Read the JSON content from the uploaded file
-            json_content = await file.read()
-            decoded_json = json_content.decode("utf-8")
-
-            # Save JSON data to a file named new_measles_data.json
-            json_file_name = "new_measles_data.json"
-            with open(json_file_name, "w") as json_file:
-                json_file.write(decoded_json)
-            # You can perform additional validation or processing here if needed
-            json_in_db = JsonInDatabaseTranformer()
-            json_in_db.push_json_data_in_db(json_file_name)
-            return {"status": "File is correct", "json_content": json_content.decode("utf-8")}
-        except Exception as e:
-            raise HTTPException(status_code=500, detail=f"Error processing JSON file: {str(e)}")
-    else:
-        raise HTTPException(status_code=400, detail="Uploaded file must be a JSON file")
-
-
 @app.get("/citiesmorethan1000000")
 async def get_data2():
     conn = sqlite3.connect('data_for_web_application.db')
@@ -280,6 +259,28 @@ async def get_data2():
 
         data_list.append(data_dict)
     return data_list
+
+@app.post("/uploadjson/")
+async def upload_json(file: UploadFile = File(...)):
+    # Check if the file extension is JSON
+    if file.filename.endswith(".json"):
+        try:
+            # Read the JSON content from the uploaded file
+            json_content = await file.read()
+            decoded_json = json_content.decode("utf-8")
+
+            # Save JSON data to a file named new_measles_data.json
+            json_file_name = "new_measles_data.json"
+            with open(json_file_name, "w") as json_file:
+                json_file.write(decoded_json)
+            # You can perform additional validation or processing here if needed
+            json_in_db = JsonInDatabaseTranformer()
+            json_in_db.push_json_data_in_db(json_file_name)
+            return {"status": "File is correct", "json_content": json_content.decode("utf-8")}
+        except Exception as e:
+            raise HTTPException(status_code=500, detail=f"Error processing JSON file: {str(e)}")
+    else:
+        raise HTTPException(status_code=400, detail="Uploaded file must be a JSON file")
 
 
 app.mount("/", StaticFiles(directory="./", html=True), name="/")
