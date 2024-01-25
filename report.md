@@ -21,4 +21,4 @@ Features
 -
 
 <b> Federal state insights: </b> Explore the 16 federal states and their vaccination rates, as well as their measles cases ordered from lowest to highest. 
-![Screenshot of the functionality for federal states](/screenshots/MeaslesCasesFederalState)
+![Screenshot of the functionality for federal states](/Screenshots/MeaslesCasesFederalState.jpg)
