@@ -81,25 +81,50 @@ Installation and Setup Instructions
 - 
 
 ### Running the application in a devcontainer via GitHub Codespaces.
+-----
 
 1. <b> Open in GitHub Codespaces </b>
-- Go to the GitHub repository: [https://github.com/xginevra/measlesdata].
+- Go to the GitHub repository: [https://github.com/xginevra/measlesdata](https://github.com/xginevra/measlesdata).
 -  Click on 'Code', then select 'Open with Codespaces'.
 - Choose 'New codespace' to create a new development environment.
 <br>
-<br>
 2. <b> Automatic setup </b>
+
 - The devcontainer which is included in this repository, will automatically set up the needed codespaces environment.
 <br>
-<br>
 3. <b> Accessing the application </b>
+
 - When the codespaces environment is done with building and starting, go to <code>Ports</code>.
 - The port 8000 is the one you want to start.
 - Click on <code>open in browser</code> - it is a small globe symbol. A new tab running the application will appear.
 <br>
+4. <b> Upload new data </b>
+
+- Either click on the link in the application where it says "feel free to update your own data here" or visit the route <code> /docs </code>.
+- After being redirected, click on the green "POST" link to show the route <code> /uploadjsondata </code>.
+- click on <code> try it out </code> and choose your file which must be based on the sample json data provided either in the repository or at the upload location of the examination.
+- click on execute and see if the upload worked (status 200) or if it was rejected because of format or wrong file type (status 500)
+- delete the /docs (and what follows) so that you only have the "normal" address of your codespace port
+- see the uploaded data along with my original files in the visualisation.
 <br>
-4. <b>  </b>
+5. <b> Getting back to my "original" data </b>
 
+- get back to the actual codespace, close the tab with the application
+- close (<code>CTRL+C</code>) and re-open the uvicorn with the command <code> python3 -m uvicorn main:app --reload </code>.
+- open the port again in browser
+- see that your inserted data disappeared :)
+<br>
 
+### Local Setup
 
+1. <b>Clone the Repository:</b>
+   - Run `git clone https://github.com/ali-b7/Covid-Analysis-in-Germany.git` in the terminal.
+   - Navigate to the cloned directory.
 
+2. <b>Install Dependencies:</b>
+   - In the terminal, run <code>pip install -r requirements.txt</code>.
+
+3. <b>Starting the Application:</b>
+   - Run <code>uvicorn main:app --reload</code> in the terminal. -> maybe you must specify a port using the addition <code> --port 8000 </code> before <code>--reload</code>
+   - The application will be available on <code>http://localhost:8000</code> or the specified port.
+   - Uploading data works the same way as 
