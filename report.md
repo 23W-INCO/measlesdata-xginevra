@@ -63,4 +63,20 @@ Functionality:
 Real-World Application:
 -
 
-<b></b>
+<b> Empowering families: </b> In practical terms, families unable to vaccinate their children against measles due to medical reasons can rely on this application, provided that the data is consistently updated and accurately reflects the genuine measles statistics.
+<br><br>
+<b> Professional guidance: </b> Even healthcare professionals can utilize this application to offer guidance to individuals, spanning across all social classes, who currently lack internet access, ensuring that valuable information is accessible to everyone.
+<br>
+<br>
+
+User Benefit:
+-
+
+<b>Well-considered decisions:</b> The app provides an easy way to explore and understand complex data, empowering the user to make informed decisions.
+<br><br>
+<b> Moving perspectives: </b> Families can carefully consider their new living location by relying on the reliable information provided by the application, ensuring a well-thought-out and health-conscious relocation. 
+<br><br>
+
+Installation and Setup Instructions
+-
+
