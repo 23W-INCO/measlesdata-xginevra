@@ -127,4 +127,4 @@ Installation and Setup Instructions
 3. <b>Starting the Application:</b>
    - Run <code>uvicorn main:app --reload</code> in the terminal. -> maybe you must specify a port using the addition <code> --port 8000 </code> before <code>--reload</code>
    - The application will be available on <code>http://localhost:8000</code> or the specified port.
-   - Uploading data works the same way as 
+   - Uploading data works the same way as in running the applicaiton in a codespaces.
