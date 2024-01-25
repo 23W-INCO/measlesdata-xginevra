@@ -78,5 +78,28 @@ User Benefit:
 <br><br>
 
 Installation and Setup Instructions
--
+- 
+
+### Running the application in a devcontainer via GitHub Codespaces.
+
+1. <b> Open in GitHub Codespaces </b>
+- Go to the GitHub repository: [https://github.com/xginevra/measlesdata].
+-  Click on 'Code', then select 'Open with Codespaces'.
+- Choose 'New codespace' to create a new development environment.
+<br>
+<br>
+2. <b> Automatic setup </b>
+- The devcontainer which is included in this repository, will automatically set up the needed codespaces environment.
+<br>
+<br>
+3. <b> Accessing the application </b>
+- When the codespaces environment is done with building and starting, go to <code>Ports</code>.
+- The port 8000 is the one you want to start.
+- Click on <code>open in browser</code> - it is a small globe symbol. A new tab running the application will appear.
+<br>
+<br>
+4. <b>  </b>
+
+
+
 
