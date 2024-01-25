@@ -77,6 +77,13 @@ User Benefit:
 <b> Moving perspectives: </b> Families can carefully consider their new living location by relying on the reliable information provided by the application, ensuring a well-thought-out and health-conscious relocation. 
 <br><br>
 
+Further (Background) Information
+-
+
+- First, I wanted to put an actual map of germany as a heatmap into index.html; but it wasn't built with D3.js, so I dropped it. It was a clickable map of Germany, providing all the information from a federal state displayed by only one click on the desired region. It was supposed to give a first rough impression of the measles situation in Germany. This would have been an even easier way to access the desired information, since we want to serve the information to everyone.
+- The FHIR-validation of the .json file is successfully done with [Simplifier](https://simplifier.net/validate).
+- Further project notes and achievements can be found [here](projectnotes.md), in the projectnotes.md.
+
 Installation and Setup Instructions
 - 
 
