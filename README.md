@@ -80,6 +80,7 @@ User Benefit:
 Further (Background) Information
 -
 
+- The visualisation is built with D3.js.
 - First, I wanted to put an actual map of germany as a heatmap into index.html; but it wasn't built with D3.js, so I dropped it. It was a clickable map of Germany, providing all the information from a federal state displayed by only one click on the desired region. It was supposed to give a first rough impression of the measles situation in Germany. This would have been an even easier way to access the desired information, since we want to serve the information to everyone.
 - The FHIR-validation of the .json file is successfully done with [Simplifier](https://simplifier.net/validate).
 - Further project notes and achievements can be found [here](projectnotes.md), in the projectnotes.md.
@@ -119,7 +120,11 @@ Installation and Setup Instructions
 - close (<code>CTRL+C</code>) and re-open the uvicorn with the command <code> python3 -m uvicorn main:app --reload </code>.
 - open the port again in browser
 - see that your inserted data disappeared :)
-<br>
+
+### Troubleshooting common setup issues
+
+- Should you face any challenges during package installation, consider upgrading pip with the command: pip install --upgrade pip and then proceed to reinstall the requirements.
+- Verify that the specified ports (e.g., 8000) are not currently in use. If occupied, either release the port or specify an alternative port in the uvicorn command.
 
 ### Local Setup
 
@@ -134,3 +139,12 @@ Installation and Setup Instructions
    - Run <code>uvicorn main:app --reload</code> in the terminal. -> maybe you must specify a port using the addition <code> --port 8000 </code> before <code>--reload</code>
    - The application will be available on <code>http://localhost:8000</code> or the specified port.
    - Uploading data works the same way as in running the applicaiton in a codespaces.
+  
+Contact me
+-
+
+If you encounter any questions or concerns, feel free to contact me:
+<br>
+[franziska.wojtkowski@stud.th-deg.de](franziska.wojtkowski@stud.th-deg.de)
+<br> or via Teams
+
