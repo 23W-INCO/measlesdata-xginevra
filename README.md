@@ -129,7 +129,7 @@ Installation and Setup Instructions
 ### Local Setup
 
 1. <b>Clone the Repository:</b>
-   - Run `git clone https://github.com/ali-b7/Covid-Analysis-in-Germany.git` in the terminal.
+   - Run <code>git clone https://github.com/xginevra/measlesdata.git </code> in the terminal.
    - Navigate to the cloned directory.
 
 2. <b>Install Dependencies:</b>
