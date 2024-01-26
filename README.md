@@ -17,6 +17,22 @@ However, although measles are a disease for which it is mandatory to report to t
 there are always cases which are not recorded and hence not visualized.
 </p>
 
+Technologies used:
+-
+This project utilizes various cutting-edge technologies and frameworks to deliver a resilient and engaging data visualization experience:<br><br>
+<p><b><em>Frontend</b></em><br>
+- <b>HTML/CSS/JavaScript:</b> Leveraged as fundamental web technologies for organizing content, styling, and introducing interactivity to web pages. <br>
+- <b>D3.js:</b> Integrated as a robust JavaScript library for generating dynamic and interactive data visualizations within web browsers. <br></p>
+
+<p><b><em>Backend</em></b><br>
+- <b>FastAPI:</b> Utilized as a modern and high-performance web framework for Python, enabling the creation of efficient API endpoints.<br>
+- <b>Python:</b> Employed as the primary backend language due to its readability and extensive support in both data processing and web development.<br>
+- <b>SQLite:</b> Adopted as a lightweight database to organize and manage COVID-19 data in a well-structured format.<br>
+- <b>JSON:</b> Employed for data storage and transfer, especially in the context of uploading new datasets and facilitating data exchange between the backend and frontend.
+</p>
+
+
+
 Features
 -
 
