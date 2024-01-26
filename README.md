@@ -50,7 +50,7 @@ Measles is not just a children's disease. It is much more than that. If not prop
 <br><br>
 A key reason why I chose this topic is that there are children who are disabled/immunocompromised, who can't be vaccinated for those and other medical reasons. Their parents must rely on the so called "herd-immunity" which is not always reliably given, especially in those federal states where it isn't mandatory to be vaccinated before going to school or kindergarten. <br>
 These families want to find a save home for their children. The app's main goals are to provide the relevant information easily, with no need for any previous knowledge; and to be used with joy. <br>
-The choice of the coloration didn't came for any additional functionality but for the sake of usage with joy. Everything around the medical topic, especially when one has a disabled child, they are happy to see at least some colour variety among all these grey or white hospital walls they probably see quite often.
+The choice of the coloration didn't come for any additional functionality but for the sake of usage with joy. Everything around the medical topic, especially when one has a disabled child, they are happy to see at least some colour variety among all these grey or white hospital walls they probably see quite often.
 
 
 Functionality:
