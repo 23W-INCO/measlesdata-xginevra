@@ -20,16 +20,16 @@ there are always cases which are not recorded and hence not visualized.
 Technologies used:
 -
 This project utilizes various cutting-edge technologies and frameworks to deliver a resilient and engaging data visualization experience:<br><br>
-<p><b><em>Frontend</b></em><br>
+<b><em>Frontend</b></em><br>
 - <b>HTML/CSS/JavaScript:</b> Leveraged as fundamental web technologies for organizing content, styling, and introducing interactivity to web pages. <br>
-- <b>D3.js:</b> Integrated as a robust JavaScript library for generating dynamic and interactive data visualizations within web browsers. <br></p>
+- <b>D3.js:</b> Integrated as a robust JavaScript library for generating dynamic and interactive data visualizations within web browsers. <br>
 
-<p><b><em>Backend</em></b><br>
+<b><em>Backend</em></b><br>
 - <b>FastAPI:</b> Utilized as a modern and high-performance web framework for Python, enabling the creation of efficient API endpoints.<br>
 - <b>Python:</b> Employed as the primary backend language due to its readability and extensive support in both data processing and web development.<br>
 - <b>SQLite:</b> Adopted as a lightweight database to organize and manage COVID-19 data in a well-structured format.<br>
 - <b>JSON:</b> Employed for data storage and transfer, especially in the context of uploading new datasets and facilitating data exchange between the backend and frontend.
-</p>
+
 
 
 
@@ -155,6 +155,15 @@ Installation and Setup Instructions
    - Run <code>uvicorn main:app --reload</code> in the terminal. -> maybe you must specify a port using the addition <code> --port 8000 </code> before <code>--reload</code>
    - The application will be available on <code>http://localhost:8000</code> or the specified port.
    - Uploading data works the same way as in running the applicaiton in a codespaces.
+
+Getting Involved in the Project
+-
+
+We warmly welcome contributions from the community! If you're eager to enhance the capabilities of this tool or have innovative ideas for new features, here's a guide on how you can get involved:<br>
+- Fork the Repository: Begin by forking the repository, creating your own version to work on.<br>
+- Submit a Pull Request: After implementing your changes, submit a pull request. Clearly articulate the purpose of your modifications in the description.<br>
+- Code Reviews: Your pull request will undergo a review process, fostering discussion and potential improvements.<br>
+- Merge: Upon approval, your contributions will be merged into the main project.
   
 Contact me
 -
