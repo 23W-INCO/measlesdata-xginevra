@@ -111,13 +111,13 @@ Installation and Setup Instructions
 - After being redirected, click on the green "POST" link to show the route <code> /uploadjson </code>.
 - click on <code> try it out </code> and choose your file which must be based on the sample json data provided either in the repository or at the upload location of the examination.
 - click on execute and see if the upload worked (status 200) or if it was rejected because of format or wrong file type (status 500)
-- delete the /docs (and what follows) so that you only have the "normal" address of your codespace port
+- delete the /docs (and what follows) so that you only have the "normal" address of your codespace port - or easier, close the current tab and open the port again from codespaces.
 - see the uploaded data along with my original files in the visualisation.
 <br>
 5. <b> Getting back to my "original" data </b>
 
 - get back to the actual codespace, close the tab with the application
-- close (<code>CTRL+C</code>) and re-open the uvicorn with the command <code> python3 -m uvicorn main:app --reload </code>.
+- you may need to restart the GitHub Codespaces in your fork of my repo.
 - open the port again in browser
 - see that your inserted data disappeared :)
 
