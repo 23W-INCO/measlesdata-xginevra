@@ -159,7 +159,7 @@ Installation and Setup Instructions
 Getting Involved in the Project
 -
 
-We warmly welcome contributions from the community! If you're eager to enhance the capabilities of this tool or have innovative ideas for new features, here's a guide on how you can get involved:<br>
+I warmly welcome contributions from the community! If you're eager to enhance the capabilities of this tool or have innovative ideas for new features, here's a guide on how you can get involved:<br>
 - Fork the Repository: Begin by forking the repository, creating your own version to work on.<br>
 - Submit a Pull Request: After implementing your changes, submit a pull request. Clearly articulate the purpose of your modifications in the description.<br>
 - Code Reviews: Your pull request will undergo a review process, fostering discussion and potential improvements.<br>
